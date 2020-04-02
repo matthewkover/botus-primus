@@ -12,7 +12,7 @@ client.on('message', message => {
 
     switch(args[0]){
         case 'who':
-            message.reply('My name is *botus primus*. I am a happy wall builder.');
+            message.reply('After 8 hours of monotonous and hard work... I do not know who am I anymore.');
         break;
     }
 })
