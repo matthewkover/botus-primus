@@ -12,7 +12,10 @@ client.on('ready', () =>{
 
 function updateStatus() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
-        if (error) throw error
+        if (error) {
+            client.user.setACtivity("Server is offline.")
+            client.user.setStatus("dnd")
+        }
         client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online') 
     })
 };
