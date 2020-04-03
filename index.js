@@ -5,7 +5,16 @@ const PREFIX = "!";
 
 client.on('ready', () =>{
     console.log('Bot is online.');
+    updateStatus();
+    setInterval(updateStatus, 2.5 * 60 * 1000) // Updates every 2.5 minutes (API caches 5 minutes)
 })
+
+function updateStatus() {
+    ping('afb.serveminecraft.net', 25565, (error, response) => {
+        if (error) throw error
+        client.user.setActivity('**' + response.onlinePlayers + '** of **' + response.maxPlayers + "**" + 'players are online') 
+    })
+};
 
 client.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
