@@ -16,7 +16,11 @@ function updateStatus() {
             client.user.setACtivity("Server is offline.")
             client.user.setStatus("dnd")
         }
-        client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online') 
+        else {
+            client.user.setStatus("online")
+            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online') 
+        }
+        
     })
 };
 
