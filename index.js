@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const ping = require('minecraft-server-util');
 
 const PREFIX = "!";
 
@@ -12,7 +13,7 @@ client.on('ready', () =>{
 function updateStatus() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         if (error) throw error
-        client.user.setActivity('**' + response.onlinePlayers + '** of **' + response.maxPlayers + "**" + 'players are online') 
+        client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online') 
     })
 };
 
