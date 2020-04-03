@@ -7,7 +7,7 @@ const PREFIX = "!";
 client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatus();
-    setInterval(updateStatus, 2.5 * 60 * 1000) // Updates every 2.5 minutes (API caches 5 minutes)
+    setInterval(updateStatus, 1 * 60 * 1000) // Updates every 2.5 minutes (API caches 5 minutes)
 })
 
 function updateStatus() {
