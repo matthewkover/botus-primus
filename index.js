@@ -14,6 +14,10 @@ client.on('message', message => {
         case 'who':
             message.reply('After 8 hours of monotonous and hard work... I do not know who am I anymore.');
         break;
+        case 'communism':
+            message.reply("Hmmm. A tempting idea... I think we need to organize the masses to overthrow the bourgeoisie. **I WILL GET ON IT RIGHT AWAY!**")
+
+        break;
     }
 })
 
