@@ -6,11 +6,11 @@ const PREFIX = "!";
 
 client.on('ready', () =>{
     console.log('Bot is online.');
-    updateStatusMessage();
+    updateStatus();
     setInterval(updateStatus, 1 * 60 * 1000)
 })
 
-function updateStatusMessage() {
+function updateStatus() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         console.log(response)
         if (response !== null && response.onlinePlayers !== 0) {
