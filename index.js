@@ -7,7 +7,6 @@ const PREFIX = "!";
 client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusMessage();
-    updateStatusIcon();
     setInterval(updateStatus, 1 * 60 * 1000)
 })
 
@@ -21,30 +20,16 @@ function updateStatusMessage() {
             })
         }
         if (response !== null && response.onlinePlayers == 0) {
-            client.user.setActivity("Nobody is online")
             client.user.setPresence( {
                 name: "Nobody is online",
                 status:'idle'
             })
         }
         if (response == null) {
-            client.user.setActivity({
+            client.user.setPresence({
                 name: "Server is offline",
                 status: 'dnd'
             })
-        }
-    });
-};
-function updateStatusIcon() {
-    ping('afb.serveminecraft.net', 25565, (error, response) => {
-        if (response !== null && response.onlinePlayers !== 0) {
-            client.user.setStatus('online')
-        }
-        if (response !== null && response.onlinePlayers == 0) {
-            client.user.setStatus('idle')
-        }
-        if (response == null) {
-            client.user.setStatus('dnd')
         }
     });
 };
