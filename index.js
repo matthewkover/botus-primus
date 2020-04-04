@@ -14,23 +14,10 @@ function updateStatus() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         console.log(response)
         if (response !== null) {
-            client.user.setPresence({
-                game: {
-                    name: response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online',
-                    type: ""
-                },
-                status: "online"
-            })
+            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online');
         }
         if (response == null) {
-            client.user.setPresence({
-                game: {
-                    name: "Server is offline.",
-                    type: ""
-                },
-                status: "dnd"
-            })
-            throw error;
+            client.user.setActivity("Server is offline.");
         }
     });
 };
