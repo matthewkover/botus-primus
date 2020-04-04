@@ -6,39 +6,35 @@ const PREFIX = "!";
 
 client.on('ready', () =>{
     console.log('Bot is online.');
-    updateStatus();
+    updateStatusMessage();
+    updateStatusIcon();
     setInterval(updateStatus, 1 * 60 * 1000) // Updates every 2.5 minutes (API caches 5 minutes)
 })
 
-function updateStatus() {
+function updateStatusMessage() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         console.log(response)
         if (response !== null && response.onlinePlayers !== 0) {
-            client.user.setPresence ({
-                game: {
-                    name: response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online',
-                    type: "Playing"
-                },
-                status: "online"
-            })
+            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online')
         }
         if (response !== null && response.onlinePlayers == 0) {
-            client.user.setPresence ({
-                game: {
-                    name: "Nobody is online",
-                    type: "Playing"
-                },
-                status: "idle"
-            })
+            client.user.setActivity("Nobody is online")
         }
         if (response == null) {
-            client.user.setPresence ({
-                game: {
-                    name: "Server is offline",
-                    type: "Playing"
-                },
-                status: "dnd"
-            })
+            client.user.setActivity("Server is offline")
+        }
+    });
+};
+function updateStatusIcon() {
+    ping('afb.serveminecraft.net', 25565, (error, response) => {
+        if (response !== null && response.onlinePlayers !== 0) {
+            client.user.setStatus('online')
+        }
+        if (response !== null && response.onlinePlayers == 0) {
+            client.user.setStatus('idle')
+        }
+        if (response == null) {
+            client.user.setStatus('dnd')
         }
     });
 };
