@@ -17,7 +17,7 @@ function updateStatus() {
             client.user.setPresence ({
                 game: {
                     name: response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online',
-                    type: ""
+                    type: "Playing"
                 },
                 status: "online"
             })
@@ -26,7 +26,7 @@ function updateStatus() {
             client.user.setPresence ({
                 game: {
                     name: "Nobody is online",
-                    type: ""
+                    type: "Playing"
                 },
                 status: "idle"
             })
@@ -35,7 +35,7 @@ function updateStatus() {
             client.user.setPresence ({
                 game: {
                     name: "Server is offline",
-                    type: ""
+                    type: "Playing"
                 },
                 status: "dnd"
             })
