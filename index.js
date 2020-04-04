@@ -8,20 +8,30 @@ client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusMessage();
     updateStatusIcon();
-    setInterval(updateStatus, 1 * 60 * 1000) // Updates every 2.5 minutes (API caches 5 minutes)
+    setInterval(updateStatus, 1 * 60 * 1000)
 })
 
 function updateStatusMessage() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         console.log(response)
         if (response !== null && response.onlinePlayers !== 0) {
-            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online')
+            client.user.setPresence ( {
+                name: response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online',
+                status: 'online'
+            })
         }
         if (response !== null && response.onlinePlayers == 0) {
             client.user.setActivity("Nobody is online")
+            client.user.setPresence( {
+                name: "Nobody is online",
+                status:'idle'
+            })
         }
         if (response == null) {
-            client.user.setActivity("Server is offline")
+            client.user.setActivity({
+                name: "Server is offline",
+                status: 'dnd'
+            })
         }
     });
 };
