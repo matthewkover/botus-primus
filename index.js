@@ -12,16 +12,27 @@ client.on('ready', () =>{
 
 function updateStatus() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
-        if (error) {
-            client.user.setACtivity("Server is offline.")
-            client.user.setStatus("dnd")
+        console.log(response)
+        if (response !== null) {
+            client.user.setPresence({
+                game: {
+                    name: response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online',
+                    type: ""
+                },
+                status: "online"
+            })
         }
-        else {
-            client.user.setStatus("online")
-            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online') 
+        if (response == null) {
+            client.user.setPresence({
+                game: {
+                    name: "Server is offline.",
+                    type: ""
+                },
+                status: "dnd"
+            })
+            throw error;
         }
-        
-    })
+    });
 };
 
 client.on('message', message => {
