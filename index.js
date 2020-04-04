@@ -6,8 +6,8 @@ const PREFIX = "!";
 
 client.on('ready', () =>{
     console.log('Bot is online.');
-    updateStatusText();
     updateStatusIcon();
+    updateStatusText();
     setInterval(updateStatusText, 1 * 60 * 1000)
     setInterval(updateStatusIcon, 1 * 60 * 1000)
 })
