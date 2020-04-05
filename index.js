@@ -19,7 +19,7 @@ function updateStatusText() {
             client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online', {type:'CUSTOM_STATUS'})
         }
         if (response !== null && response.onlinePlayers == 0) {
-            client.user.setActivity("Nobody is online", {type: 'CUSTOM_STATUS'})
+            client.user.setActivity("Nobody is online", {type: 'WATCHING'})
         }
         if (response == null) {
             client.user.setActivity("Server is offline", {type:'CUSTOM_STATUS'})
