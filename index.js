@@ -4,6 +4,8 @@ const ping = require('minecraft-server-util');
 
 const PREFIX = "!";
 
+var timestamp = date.getTime();
+
 client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusIcon();
@@ -14,22 +16,18 @@ client.on('ready', () =>{
 
 function updateStatusText() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
-        console.log(response)
-        if (response !== null && response.onlinePlayers !== 0) {
-            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online', {type:'CUSTOM_STATUS'})
-        }
-        if (response !== null && response.onlinePlayers == 0) {
-            client.user.setActivity("Nobody is online", {type: 'WATCHING'})
+        console.log("Query was made at" + timestamp)
+        if (response !== null) {
+            client.user.setActivity('server status: online (' + response.onlinePlayers + ' / ' + response.maxPlayers + ' )', {type:'WATCHING'})
         }
         if (response == null) {
-            client.user.setActivity("Server is offline", {type:'CUSTOM_STATUS'})
+            client.user.setActivity("server status: offline", {type:'WATCHING'})
 
         }
     });
 };
 function updateStatusIcon() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
-        console.log(response)
         if (response !== null && response.onlinePlayers !== 0) {
             client.user.setStatus('online')
         }
