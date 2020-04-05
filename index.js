@@ -16,7 +16,7 @@ function updateStatusText() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         console.log("Query was made.")
         if (response !== null) {
-            client.user.setActivity('server status: online \n (' + response.onlinePlayers + ' / ' + response.maxPlayers + ' )', {type:'WATCHING'})
+            client.user.setActivity("server status: online \n" + "(" + response.onlinePlayers + ' / ' + response.maxPlayers + ' )', {type:'WATCHING'})
         }
         if (response == null) {
             client.user.setActivity("server status: offline", {type:'WATCHING'})
