@@ -16,13 +16,13 @@ function updateStatusText() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
         console.log(response)
         if (response !== null && response.onlinePlayers !== 0) {
-            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online')
+            client.user.setActivity(response.onlinePlayers + ' of ' + response.maxPlayers + ' players are online', {type:'CUSTOM_STATUS'})
         }
         if (response !== null && response.onlinePlayers == 0) {
-            client.user.setActivity("Nobody is online")
+            client.user.setActivity("Nobody is online", {type: 'CUSTOM_STATUS'})
         }
         if (response == null) {
-            client.user.setActivity("Server is offline")
+            client.user.setActivity("Server is offline", {type:'CUSTOM_STATUS'})
 
         }
     });
