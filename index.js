@@ -49,25 +49,29 @@ client.on('message', message => {
             message.reply("Hmmm. A tempting idea... I think we need to organize the masses to overthrow the bourgeoisie. **I WILL GET ON IT RIGHT AWAY!**")
         break;
         case 'status':
-
             ping('afb.serveminecraft.net', 25565, (error, response) => {
-                var array = response.samplePlayers;
-                var players = "";
-
-                for (let index = 0; index < array.length; index++) {
-                    players = players + array[index].name + '\n '
-                }
+                updateStatusIcon();
+                updateStatusText();
                 
                 if (response == null ) {
                     const Embed = new Discord.MessageEmbed()
-                    .setAuthor(':no_entry: The server seems to be offline.')
+                    .setAuthor('The server seems to be offline.', 'https://cdn.discordapp.com/attachments/695298943046779001/697923694139408454/x.png')
                     .setDescription('The communist spirit has overpowered the host computer...')
                     .setColor('E85D75')
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
+                    message.channel.send(Embed);
                 }
+
                 if (response !== null) {
+                    var array = response.samplePlayers;
+                    var players = "";
+
+                    for (let index = 0; index < array.length; index++) {
+                        players = players + array[index].name + '\n '
+                    }
+
                     const Embed = new Discord.MessageEmbed()
                     .setTitle('Server Satus')
                     .setColor('55FF55')
@@ -77,14 +81,14 @@ client.on('message', message => {
                         { name: 'Description', value: response.descriptionText.substring(3, response.descriptionText.length) },
                         { name: 'Server IP', value: response.host },
                         { name: 'Online players', value: players },
-                        { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' +'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
+                        { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' + 'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
                     )
                     .addField('Version', response.version, true)
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
-                }
 
-                message.channel.send(Embed);
+                    message.channel.send(Embed);
+                }
             })
         break
     }
