@@ -65,8 +65,8 @@ client.on('message', message => {
                 }
                 if (response !== null && response.onlinePlayers == 0) {
                     const Embed = new Discord.MessageEmbed()
-                    .setTitle('Server Satus')
-                    .setColor('55FF55')
+                    .setTitle('Server is online')
+                    .setColor('f7a922')
                     .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
                     .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
                     .addFields(
@@ -90,8 +90,8 @@ client.on('message', message => {
                     }
 
                     const Embed = new Discord.MessageEmbed()
-                    .setTitle('Server Satus')
-                    .setColor('55FF55')
+                    .setTitle('Server us online')
+                    .setColor('45b781')
                     .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
                     .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
                     .addFields(
