@@ -51,34 +51,38 @@ client.on('message', message => {
         case 'status':
 
             ping('afb.serveminecraft.net', 25565, (error, response) => {
-                if (response == null ) {
-                    const Embed = new Discord.MessageEmbed()
-                    .setAuthor(':no_entry: The server seems to be offline.')
-                    .setDescription('The communist spirit has overpowered the host computer... Some')
-                    .setColor('E85D75')
-                }
-
                 var array = response.samplePlayers;
                 var players = "";
 
                 for (let index = 0; index < array.length; index++) {
                     players = players + array[index].name + '\n '
                 }
+                
+                if (response == null ) {
+                    const Embed = new Discord.MessageEmbed()
+                    .setAuthor(':no_entry: The server seems to be offline.')
+                    .setDescription('The communist spirit has overpowered the host computer...')
+                    .setColor('E85D75')
+                    .setTimestamp()
+                    .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                const Embed = new Discord.MessageEmbed()
-                .setTitle('Server Satus')
-                .setColor('55FF55')
-                .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
-                .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
-                .addFields(
-                    { name: 'Description', value: response.descriptionText.substring(3, response.descriptionText.length) },
-                    { name: 'Server IP', value: response.host },
-                    { name: 'Online players', value: players },
-                    { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' +'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
-                )
-                .addField('Version', response.version, true)
-                .setTimestamp()
-                .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
+                }
+                if (response !== null) {
+                    const Embed = new Discord.MessageEmbed()
+                    .setTitle('Server Satus')
+                    .setColor('55FF55')
+                    .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
+                    .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
+                    .addFields(
+                        { name: 'Description', value: response.descriptionText.substring(3, response.descriptionText.length) },
+                        { name: 'Server IP', value: response.host },
+                        { name: 'Online players', value: players },
+                        { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' +'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
+                    )
+                    .addField('Version', response.version, true)
+                    .setTimestamp()
+                    .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
+                }
 
                 message.channel.send(Embed);
             })
