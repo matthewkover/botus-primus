@@ -51,7 +51,13 @@ client.on('message', message => {
         case 'status':
 
             ping('afb.serveminecraft.net', 25565, (error, response) => {
-                if (error) throw error
+                if (response == null ) {
+                    const Embed = new Discord.MessageEmbed()
+                    .setAuthor(':no_entry: The server seems to be offline.')
+                    .setDescription('The communist spirit has overpowered the host computer... Some')
+                    .setColor('E85D75')
+                }
+
                 var array = response.samplePlayers;
                 var players = "";
 
