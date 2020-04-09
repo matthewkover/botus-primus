@@ -53,18 +53,35 @@ client.on('message', message => {
                 updateStatusIcon();
                 updateStatusText();
                 
-                if (response == null ) {
+                if (response == null) {
                     const Embed = new Discord.MessageEmbed()
-                    .setAuthor('The server seems to be offline.', 'https://cdn.discordapp.com/attachments/695298943046779001/697923694139408454/x.png')
-                    .setDescription('The communist spirit has overpowered the host computer...')
+                    .setAuthor('The server seems to be offline.')
+                    .setDescription('The filthy capitalist scum have taken our magnificent server away. We must wait our Supreme Leader to take back what is lost.')
                     .setColor('E85D75')
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
                     message.channel.send(Embed);
                 }
+                if (response !== null && response.onlinePlayers == 0) {
+                    const Embed = new Discord.MessageEmbed()
+                    .setTitle('Server Satus')
+                    .setColor('55FF55')
+                    .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
+                    .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
+                    .addFields(
+                        { name: 'Description', value: response.descriptionText.substring(3, response.descriptionText.length) },
+                        { name: 'Server IP', value: response.host },
+                        { name: 'Online players', value: "There are no players online" },
+                        { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' + 'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
+                    )
+                    .addField('Version', response.version, true)
+                    .setTimestamp()
+                    .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                if (response !== null) {
+                    message.channel.send(Embed);
+                }
+                if (response !== null && response.onlinePlayers !== 0) {
                     var array = response.samplePlayers;
                     var players = "";
 
