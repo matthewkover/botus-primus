@@ -48,7 +48,6 @@ function updateStatusIcon() {
 
 client.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
-    message.delete(3000)
 
     switch(args[0]){
         case 'who':
@@ -61,6 +60,8 @@ client.on('message', message => {
             ping('afb.serveminecraft.net', 25565, (error, response) => {
                 updateStatusIcon();
                 updateStatusText();
+                message.delete(10000)
+
                 
                 if (response == null) {
                     const Embed = new Discord.MessageEmbed()
@@ -70,7 +71,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed).then(d_msg => {d_msg.delete(3000)});
+                    message.channel.send(Embed).then(d_msg => {d_msg.delete(10000)});
                 }
                 if (response !== null && response.onlinePlayers == 0) {
                     const Embed = new Discord.MessageEmbed()
