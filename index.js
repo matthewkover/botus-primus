@@ -60,10 +60,9 @@ client.on('message', message => {
             ping('afb.serveminecraft.net', 25565, (error, response) => {
                 updateStatusIcon();
                 updateStatusText();
-                message.delete(10000)
-
                 
                 if (response == null) {
+                    message.delete()
                     const Embed = new Discord.MessageEmbed()
                     .setAuthor('The server seems to be offline.')
                     .setDescription('The filthy capitalist scum have taken our magnificent server away. We must wait our Supreme Leader to take back what is lost.')
@@ -71,9 +70,10 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed).then(d_msg => {d_msg.delete(10000)});
+                    message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
                 }
                 if (response !== null && response.onlinePlayers == 0) {
+                    message.delete();
                     const Embed = new Discord.MessageEmbed()
                     .setTitle('Server is online')
                     .setColor('f7a922')
@@ -89,7 +89,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed);
+                    message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
                 }
                 if (response !== null && response.onlinePlayers !== 0) {
                     var array = response.samplePlayers;
@@ -114,7 +114,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed);
+                    message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
                 }
             })
         break
