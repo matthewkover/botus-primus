@@ -4,6 +4,8 @@ const ping = require('minecraft-server-util');
 
 const PREFIX = "!";
 
+// STARTUP
+
 client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusIcon();
@@ -11,6 +13,8 @@ client.on('ready', () =>{
     setInterval(updateStatusText, 1 * 60 * 1000)
     setInterval(updateStatusIcon, 1 * 60 * 1000)
 })
+
+// STATUS TEXT QUERY
 
 function updateStatusText() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
@@ -23,6 +27,8 @@ function updateStatusText() {
         }
     });
 };
+
+// STATUS ICON QUERY
 
 function updateStatusIcon() {
     ping('afb.serveminecraft.net', 25565, (error, response) => {
@@ -38,6 +44,8 @@ function updateStatusIcon() {
     });
 };
 
+// CHAT COMMANDS
+
 client.on('message', message => {
     let args = message.content.substring(PREFIX.length).split(" ");
 
@@ -52,6 +60,7 @@ client.on('message', message => {
             ping('afb.serveminecraft.net', 25565, (error, response) => {
                 updateStatusIcon();
                 updateStatusText();
+                message.delete()
                 
                 if (response == null) {
                     const Embed = new Discord.MessageEmbed()
@@ -61,7 +70,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed);
+                    message.channel.send(Embed).then(d_msg => {d_msg.delete(60000);});
                 }
                 if (response !== null && response.onlinePlayers == 0) {
                     const Embed = new Discord.MessageEmbed()
@@ -90,7 +99,7 @@ client.on('message', message => {
                     }
 
                     const Embed = new Discord.MessageEmbed()
-                    .setTitle('Server us online')
+                    .setTitle('Server is online')
                     .setColor('45b781')
                     .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
                     .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
