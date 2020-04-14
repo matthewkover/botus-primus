@@ -17,7 +17,7 @@ client.on('ready', () =>{
 // STATUS TEXT QUERY
 
 function updateStatusText() {
-    ping('afb.serveminecraft.net', 25565, (error, response) => {
+    ping('afb.myserver.gs', 25565, (error, response) => {
         console.log("Query was made.")
         if (response !== null) {
             client.user.setActivity('status: online (' + response.onlinePlayers + ' / ' + response.maxPlayers + ')', {type:'WATCHING'})
@@ -31,7 +31,7 @@ function updateStatusText() {
 // STATUS ICON QUERY
 
 function updateStatusIcon() {
-    ping('afb.serveminecraft.net', 25565, (error, response) => {
+    ping('afb.myserver.gs', 25565, (error, response) => {
         if (response !== null && response.onlinePlayers !== 0) {
             client.user.setStatus('online')
         }
@@ -57,7 +57,7 @@ client.on('message', message => {
             message.reply("Hmmm. A tempting idea... I think we need to organize the masses to overthrow the bourgeoisie. **I WILL GET ON IT RIGHT AWAY!**")
         break;
         case 'status':
-            ping('afb.serveminecraft.net', 25565, (error, response) => {
+            ping('afb.myserver.gs', 25565, (error, response) => {
                 updateStatusIcon();
                 updateStatusText();
                 
