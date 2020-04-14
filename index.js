@@ -92,6 +92,7 @@ client.on('message', message => {
                     message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
                 }
                 if (response !== null && response.onlinePlayers !== 0) {
+                    message.delete();
                     var array = response.samplePlayers;
                     var players = "";
 
