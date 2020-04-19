@@ -70,7 +70,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
+                    message.channel.send(Embed).then(d => {d.delete({timeout: 1000 * 60 * 3})});
                 }
                 if (response !== null && response.onlinePlayers == 0) {
                     message.delete();
@@ -89,7 +89,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
+                    message.channel.send(Embed).then(d => {d.delete({timeout: 1000 * 60 * 3})});
                 }
                 if (response !== null && response.onlinePlayers !== 0) {
                     message.delete();
@@ -115,7 +115,7 @@ client.on('message', message => {
                     .setTimestamp()
                     .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
 
-                    message.channel.send(Embed).then(d => {d.delete({timeout: 30000})});
+                    message.channel.send(Embed).then(d => {d.delete({timeout: 1000 * 60 * 3})});
                 }
             })
         break
