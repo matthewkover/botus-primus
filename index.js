@@ -53,6 +53,36 @@ client.on('message', message => {
         case 'who':
             message.reply('After 8 hours of monotonous and hard work... I do not know who am I anymore.');
         break;
+        case 'role':
+            let args = message.content.toLowerCase().substring(6);
+            let { cache } = message.guild.roles;
+            let role = cache.find(role => role.name.toLowerCase() === args)
+            if (role) {
+                if (message.member.roles.cache.has(role.id)) {
+                    message.channel.send("You already have this role!");
+                    return;
+                }
+                if (
+                    role.permissions.has('ADMINISTRATOR') || 
+                    role.permissions.has('KICK_MEMBERS') || 
+                    role.permissions.has('BAN_MEMBERS') ||
+                    role.permissions.has('MANAGE_GUILD') ||
+                    role.permissions.has('MANAGE_CHANNELS')
+                ) {
+                    message.channel.send("You cannot add yourself to this role.");
+                }
+                else {
+                    message.member.roles.add(role)
+                        .then(member => message.channel.send("You were added to this role!"))
+                        .catch(err => console.log(err));
+                }
+            }
+            else {
+                Message.channel.send("Role not found!");
+            }
+
+
+        break;
         case 'communism':
             message.reply("Hmmm. A tempting idea... I think we need to organize the masses to overthrow the bourgeoisie. **I WILL GET ON IT RIGHT AWAY!**")
         break;
