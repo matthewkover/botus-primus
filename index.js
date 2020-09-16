@@ -63,8 +63,13 @@ client.on('message', message => {
     const args = message.content.slice(PREFIX.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
-        client.commands.get('ping').execute(message, args);
+    switch(command){
+        case 'ping':
+            client.commands.get('ping').execute(message, args);
+        break;
+        default:
+            message.channel.send('This command does not exist.');
+        break;
     }
 })
 
