@@ -60,7 +60,7 @@ function updateStatusIcon() {
 client.on('message', message => {
     if(!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-    const args = message.content.slice(PREFIX.length).split(/ +/);
+    const args = message.content.slice(PREFIX.length);
     const command = args.shift().toLowerCase();
 
     switch(command){
