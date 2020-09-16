@@ -74,7 +74,7 @@ client.on('message', message => {
             client.commands.get('role').execute(message, args);
         break;
         case 'status':
-            client.commands.get('status').execute(message, args, ping);
+            client.commands.get('status').execute(message, args, ping, updateStatusIcon, updateStatusText);
         break;
         default:
             message.channel.send('This command does not exist.');
