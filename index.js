@@ -66,7 +66,6 @@ client.on('message', message => {
     switch(command){
         case 'ping':
             client.commands.get('ping').execute(message, args);
-        break;
         default:
             message.channel.send('This command does not exist.');
         break;
