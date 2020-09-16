@@ -2,9 +2,9 @@ module.exports = {
     name: 'role',
     description: 'Role assigner',
     execute(message, args) {
-        let args = message.content.toLowerCase().substring(6);
+        let watcher = message.content.toLowerCase().substring(6);
             let { cache } = message.guild.roles;
-            let role = cache.find(role => role.name.toLowerCase() === args)
+            let role = cache.find(role => role.name.toLowerCase() === watcher)
             if (role) {
                 if (message.member.roles.cache.has(role.id)) {
                     message.channel.send("You already have this role!");
