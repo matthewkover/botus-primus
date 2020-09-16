@@ -64,10 +64,13 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     switch(command){
-        case 'ping':
-            client.commands.get('ping').execute(message, args);
         default:
             message.channel.send('This command does not exist.');
+        case 'ping':
+            client.commands.get('ping').execute(message, args);
+        break;
+        case 'communism':
+            client.commands.get('communism').execute(message,args);
         break;
     }
 })
