@@ -64,6 +64,9 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     switch(command){
+        case 'help':
+            client.commands.get('help').execute(message, args, Discord);
+        break;
         case 'ping':
             client.commands.get('ping').execute(message, args);
         break;
@@ -74,7 +77,7 @@ client.on('message', message => {
             client.commands.get('role').execute(message, args);
         break;
         case 'status':
-            client.commands.get('status').execute(message, args, ping, updateStatusIcon, updateStatusText);
+            client.commands.get('status').execute(message, args, ping, Discord, updateStatusIcon, updateStatusText);
         break;
         default:
             message.channel.send('This command does not exist.');
