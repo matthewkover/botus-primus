@@ -79,6 +79,9 @@ client.on('message', message => {
         case 'status':
             client.commands.get('status').execute(message, args, ping, Discord, updateStatusIcon, updateStatusText);
         break;
+        case 'event':
+            client.commands.get('event').execute(message, args, ping, Discord);
+        break;
         default:
             message.channel.send('This command does not exist.');
     }
