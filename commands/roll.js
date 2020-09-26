@@ -16,7 +16,7 @@ module.exports = {
             }
         } else if (temp.length == 3) {
             try {
-                if (temp[1] % 1 == 0 && temp[2] % 1 == 0 && ) {
+                if (temp[1] % 1 == 0 && temp[2] % 1 == 0 ) {
                     message.channel.send(message.author.username + "rolled" + Math.floor(Math.random() * temp[2]) + temp[1]) + ".";
                 }
             }
