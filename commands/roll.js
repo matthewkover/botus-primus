@@ -9,6 +9,7 @@ module.exports = {
     description: 'This is a command rolls a dice.',
     execute(message, args) {
         var temp = message.content.split(" ");
+        message.delete();
         if (temp.length == 1) {
             message.reply(" rolled " + "**" + getRandomInt(1, 6) + "**.");
         } else if (temp.length == 2 && Number.isInteger(temp[1]/1)) {
@@ -18,6 +19,5 @@ module.exports = {
         } else {
             message.channel.send("Wrong input!");
         }
-        message.delete();
     }
 }
