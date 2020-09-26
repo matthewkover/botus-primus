@@ -6,7 +6,7 @@ function getRandomInt(min, max) {
 
 module.exports = {
     name: 'roll',
-    description: 'This is a command rolls a dice.',
+    description: 'This is command rolls a dice.',
     execute(message, args) {
         var temp = message.content.split(" ");
         message.delete();
@@ -17,7 +17,7 @@ module.exports = {
         } else if (temp.length == 3 && Number.isInteger(temp[1]/1) && Number.isInteger(temp[2]/1)) {
             message.reply("rolled " + "**" + getRandomInt(temp[1], temp[2]) + "**.");
         } else {
-            message.channel.send("Wrong input!");
+            message.channel.send("**Wrong input!**");
         }
     }
 }
