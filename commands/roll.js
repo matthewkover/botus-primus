@@ -2,7 +2,7 @@ module.exports = {
     name: 'roll',
     description: 'This is a command rolls a dice.',
     execute(message, args) {
-        var temp = massage.content.split(" ");
+        var temp = message.content.split(" ");
         if (temp.length == 1) {
             message.channel.send(message.author.username + "rolled" + Math.floor(Math.random() * 6) + 1) + ".";
         } else if (temp.length == 2) {
