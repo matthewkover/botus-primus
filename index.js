@@ -82,6 +82,9 @@ client.on('message', message => {
         case 'event':
             client.commands.get('event').execute(message, args, Discord);
         break;
+        case 'roll':
+            client.commands.get('roll').execute(message, args, Discord);
+        break;
         default:
             message.channel.send('This command does not exist.');
     }
