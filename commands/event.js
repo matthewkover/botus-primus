@@ -7,13 +7,17 @@ module.exports = {
         .setDescription('EVENT_DESCRIPTION')
         .addField('Time', 'TIME')
         .addFields (
-            { name: 'Accepted', value: 'ACCEPTED_USERS', inline: true},
-            { name: 'Declined', value: 'DECLINED_USERS', inline: true},
-            { name: 'Tentative', value: 'TENTATIVE_USERS', inline: true},
+            { name: 'Accepted', value: '> ACCEPTED_USERS', inline: true},
+            { name: 'Declined', value: '> DECLINED_USERS', inline: true},
+            { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
         )
         .setFooter('Created by xyz')
         .setTimestamp()
         ;
-        message.channel.send(Embed);
+        message.channel.send(Embed).then(async msg => {
+            await msg.react(':white_check_mark:')
+            await msg.react(':x:')
+            await msg.react(':grey_question:')
+        });
     }
 }
