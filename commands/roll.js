@@ -4,7 +4,7 @@ module.exports = {
     execute(message, args) {
         var temp = message.content.split(" ");
         if (temp.length == 1) {
-            message.channel.send("@" + message.author.username + " rolled " + Math.floor(Math.random() * 6) + 1);
+            message.reply(" rolled " + Math.floor(Math.random() * 6) + 1);
         } else if (temp.length == 2) {
             try {
                 if (temp[1] % 1 == 0) {
