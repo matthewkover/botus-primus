@@ -4,6 +4,7 @@ const ping = require('minecraft-server-util');
 const PREFIX = "!";
 const fs = require('fs');
 
+//Ez egy próba
 client.commands = new Discord.Collection();
 
 // READ COMMAND DIRECTORY
