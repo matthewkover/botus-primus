@@ -10,11 +10,11 @@ module.exports = {
     execute(message, args) {
         var temp = message.content.split(" ");
         if (temp.length == 1) {
-            message.reply(" rolled " + "**" + getRndInteger(1, 6) + "**.");
+            message.reply(" rolled " + "**" + getRandomInt(1, 6) + "**.");
         } else if (temp.length == 2) {
             try {
                 if (temp[1] % 1 == 0) {
-                   message.reply(" rolled " + "**" + getRndInteger(1, temp[1]) + "**.");
+                   message.reply(" rolled " + "**" + getRandomInt(1, temp[1]) + "**.");
                 }
             }
             catch (err) {
@@ -23,7 +23,7 @@ module.exports = {
         } else if (temp.length == 3) {
             try {
                 if (temp[1] % 1 == 0 && temp[2] % 1 == 0 ) {
-                    message.reply(" rolled " + "**" + getRndInteger(temp[1], temp[2]) + "**.");
+                    message.reply(" rolled " + "**" + getRandomInt(temp[1], temp[2]) + "**.");
                 }
             }
             catch (err) {
