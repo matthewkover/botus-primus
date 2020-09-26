@@ -5,11 +5,11 @@ module.exports = {
         const Embed = new Discord.MessageEmbed()
         .setAuthor('EVENT_TITLE')
         .setDescription('EVENT_DESCRIPTION')
-        .addField('Time', 'TIME', true)
+        .addField('Time', 'TIME')
         .addFields (
-            { name: 'Accepted', value: 'ACCEPTED_USERS'},
-            { name: 'Declined', value: 'DECLINED_USERS'},
-            { name: 'Tentative', value: 'TENTATIVE_USERS'},
+            { name: 'Accepted', value: 'ACCEPTED_USERS', inline: true},
+            { name: 'Declined', value: 'DECLINED_USERS', inline: true},
+            { name: 'Tentative', value: 'TENTATIVE_USERS', inline: true},
         )
         .setFooter('Created by xyz')
         .setTimestamp()
