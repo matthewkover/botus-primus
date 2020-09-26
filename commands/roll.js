@@ -6,7 +6,7 @@ function getRandomInt(min, max) {
 
 module.exports = {
     name: 'roll',
-    description: 'This is command rolls a dice.',
+    description: 'This command rolls a dice.',
     execute(message, args) {
         var temp = message.content.split(" ");
         message.delete();
