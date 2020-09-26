@@ -18,5 +18,6 @@ module.exports = {
         } else {
             message.channel.send("Wrong input!");
         }
+        message.delete();
     }
 }
