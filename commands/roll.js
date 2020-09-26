@@ -9,7 +9,7 @@ module.exports = {
     description: 'This command rolls a dice.',
     execute(message, args) {
         var temp = message.content.split(" ");
-        message.delete({timeout: 1000 * 60 * 3});
+        message.delete();
         if (temp.length == 1) {
             message.reply("rolled " + "**" + getRandomInt(1, 6) + "**.");
         } else if (temp.length == 2 && Number.isInteger(temp[1]/1)) {
