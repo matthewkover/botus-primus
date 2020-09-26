@@ -12,7 +12,7 @@ module.exports = {
         } else if (temp.length == 2) {
             try {
                 if (temp[1] % 1 == 0) {
-                   message.reply(" rolled " + "**" + (Math.floor(Math.random() * 100) + 1) + "**.");
+                   message.reply(" rolled " + "**" + getRndInteger(1, temp[1]) + "**.");
                 }
             }
             catch (err) {
@@ -21,7 +21,7 @@ module.exports = {
         } else if (temp.length == 3) {
             try {
                 if (temp[1] % 1 == 0 && temp[2] % 1 == 0 ) {
-                    message.channel.send(message.author.username + " rolled " + Math.floor(Math.random() * temp[2]) + temp[1]);
+                    message.reply(" rolled " + "**" + getRndInteger(temp[1], temp[2]) + "**.");
                 }
             }
             catch (err) {
