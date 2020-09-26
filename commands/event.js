@@ -15,9 +15,8 @@ module.exports = {
         .setTimestamp()
         ;
         message.channel.send(Embed).then(async msg => {
-            await msg.react(':white_check_mark:')
-            await msg.react(':x:')
-            await msg.react(':grey_question:')
+            msg.react('✅')
+            msg.react('❌')
         });
     }
 }
