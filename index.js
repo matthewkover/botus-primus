@@ -86,7 +86,7 @@ client.on('message', message => {
             client.commands.get('roll').execute(message, args);
         break;
         default:
-            message.channel.send('The following command does not exists: !**' + command + '** Write **!help** to see the list of things I can do.');
+            message.channel.send('The following command does not exists: **!' + command + '** Write **!help** to see the list of things I can do.');
     }
 })
 
