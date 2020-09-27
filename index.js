@@ -85,6 +85,9 @@ client.on('message', message => {
         case 'roll':
             client.commands.get('roll').execute(message, args);
         break;
+        case 'championpool':
+            client.commands.get('championpool').execute(message, args);
+        break;
         default:
             message.channel.send('The following command does not exists: **!' + command + '**\nWrite **!help** to see the list of things I can do.');
     }
