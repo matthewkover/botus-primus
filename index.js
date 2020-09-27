@@ -31,10 +31,10 @@ function updateStatusText() {
     ping('51.178.75.64', 41489, (error, response) => {
         console.log("Query was made.")
         if (response !== null) {
-            client.user.setActivity('for **!help**', {type:'LISTENING'})
+            client.user.setActivity('!help', {type:'LISTENING'})
         }
         if (response == null) {
-            client.user.setActivity('for **!help**', {type:'LISTENING'})
+            client.user.setActivity(' !help', {type:'LISTENING'})
         }
     });
 };
