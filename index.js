@@ -31,10 +31,10 @@ function updateStatusText() {
     ping('51.178.75.64', 41489, (error, response) => {
         console.log("Query was made.")
         if (response !== null) {
-            client.user.setActivity('status: online (' + response.onlinePlayers + ' / ' + response.maxPlayers + ')', {type:'WATCHING'})
+            client.user.setActivity('for **!help**', {type:'LISTENING'})
         }
         if (response == null) {
-            client.user.setActivity('status: offline', {type:'WATCHING'})
+            client.user.setActivity('for **!help**', {type:'LISTENING'})
         }
     });
 };
@@ -47,10 +47,10 @@ function updateStatusIcon() {
             client.user.setStatus('online')
         }
         if (response !== null && response.onlinePlayers == 0) {
-            client.user.setStatus('idle')
+            client.user.setStatus('online')
         }
         if (response == null) {
-            client.user.setStatus('dnd')
+            client.user.setStatus('online')
         }
     });
 };
