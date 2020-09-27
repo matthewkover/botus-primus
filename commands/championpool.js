@@ -12,3 +12,4 @@ module.exports = {
         var chpool = ch.split(",");
         message.reply("should learn **" + chpool[getRandomInt(0, chpool.length-1)] + "** next!");
     }
+}
