@@ -1,13 +1,13 @@
-/*class Event {
+class Event {
     function Event(id, ename, date, acc, dec, tent) {
-        this.id = id;
-        this.ename = ename;
-        this.date = date;
-        this.acc = acc;
-        this.dec = dec;
-        this.tent = tent;
+        this.eventId = id;
+        this.eventName = ename;
+        this.eventDate = date;
+        this.accepted = acc;
+        this.declined = dec;
+        this.tentative = tent;
     }
-}*/
+}
 
 
 
