@@ -1,3 +1,14 @@
+class Event {
+    function Event(id, ename, date, acc, dec, tent) {
+        this.id = id;
+        this.ename = ename;
+        this.date = date;
+        this.acc = acc;
+        this.dec = dec;
+        this.tent = tent;
+    }
+}
+
 
 
 
