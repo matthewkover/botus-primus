@@ -1,5 +1,5 @@
 class Event {
-    function Event(id, ename, date, acc, dec, tent) {
+    constructor(id, ename, date, acc, dec, tent) {
         this.eventId = id;
         this.eventName = ename;
         this.eventDate = date;
