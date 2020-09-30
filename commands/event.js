@@ -1,4 +1,4 @@
-class Event {
+/*class Event {
     function Event(id, ename, date, acc, dec, tent) {
         this.id = id;
         this.ename = ename;
@@ -7,7 +7,7 @@ class Event {
         this.dec = dec;
         this.tent = tent;
     }
-}
+}*/
 
 
 
