@@ -15,13 +15,13 @@ module.exports = {
             { name: 'Declined', value: '> DECLINED_USERS', inline: true},
             { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
         )
-        .setFooter('Created by ' + message.author.name)
+        .setFooter('Created by ' + message.author.username)
         .setTimestamp()
         ;
         message.channel.send(Embed).then(async msg => {
             msg.react('✅')
             msg.react('❌')
-            msg.react(String.fromCharCode(63))
+            msg.react('❔')
         });
     }
 }
