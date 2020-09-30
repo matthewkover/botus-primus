@@ -1,3 +1,7 @@
+
+
+
+
 module.exports = {
     name: 'event',
     description: 'Event reminders can be set by this command',
@@ -17,7 +21,7 @@ module.exports = {
         message.channel.send(Embed).then(async msg => {
             msg.react('✅')
             msg.react('❌')
-            msg.react(':grey_question')
+            msg.react(':grey_question:')
         });
     }
 }
