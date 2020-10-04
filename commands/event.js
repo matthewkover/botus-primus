@@ -9,9 +9,8 @@ class Event {
     }
     
     function checkIfValid(yy,mm,dd,hh,min) {
-        if (!Number.isInteger(yy/1)) || !Number.isInteger(mm/1) || !Number.isInteger(dd/1)) || !Number.isInteger(hh/1)) || !Number.isInteger(min/1))) {
-            return False; 
-        }    
+        if (!Number.isInteger(yy/1) || !Number.isInteger(mm/1) || !Number.isInteger(dd/1) || !Number.isInteger(hh/1) || !Number.isInteger(min/1)) 
+            return False;   
         return True;
     }
 }
