@@ -8,11 +8,22 @@ class Event {
         this.tentative = tent;
     }
     
-    checkIfValid(yy, mm, dd, hh, min) {
+    checkIfInt(yy, mm, dd, hh, min) {
         if (!Number.isInteger(yy / 1) || !Number.isInteger(mm / 1) || !Number.isInteger(dd / 1) || !Number.isInteger(hh / 1) || !Number.isInteger(min / 1)) 
             return false;
         return true;
     }
+    
+    splitMessage(input) {
+        for (var i = 0; i < input.length; i++) {
+            if (input[i] == '.' || input[i] == ':') {
+                input = input.substring(0, i) + ' ' + input.substring(i + 1);
+            }
+        }
+        input = input.split(" ");
+        return input.shift();
+    }
+    
 }
 
 
@@ -22,7 +33,7 @@ module.exports = {
     execute(message, args, Discord) {
         const Embed = new Discord.MessageEmbed()
         .setAuthor('EVENT_TITLE')
-        .setDescription('EVENT_DESCRIPTION')
+        .setDescription('')
         .addField('Time', 'TIME')
         .addFields (
             { name: 'Accepted', value: '> ACCEPTED_USERS', inline: true},
