@@ -16,9 +16,8 @@ class Event {
     
     splitMessage(input) {
         for (var i = 0; i < input.length; i++) {
-            if (input[i] == '.' || input[i] == ':') {
+            if (input[i] == '.' || input[i] == ':') 
                 input = input.substring(0, i) + ' ' + input.substring(i + 1);
-            }
         }
         input = input.split(" ");
         return input.shift();
@@ -34,7 +33,7 @@ module.exports = {
         const Embed = new Discord.MessageEmbed()
         .setAuthor('EVENT_TITLE')
         .setDescription('')
-        .addField('Time', 'TIME')
+        .addField('Time', '> TIME')
         .addFields (
             { name: 'Accepted', value: '> ACCEPTED_USERS', inline: true},
             { name: 'Declined', value: '> DECLINED_USERS', inline: true},
