@@ -45,7 +45,7 @@ module.exports = {
     execute(message, args, Discord) {
         //
         var e = new Event();
-        var tomb = e.splitMessage(message.channel.content)
+        var tomb = e.splitMessage(message.content)
         min = tomb[tomb.length - 1];
         tomb.pop();
         hh = tomb[tomb.length - 1];
