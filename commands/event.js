@@ -16,7 +16,7 @@ class Event {
     
     splitMessage(i) {
         var tomb = [];
-        var input = i;
+        var input = i.toString();
         for (var i = 0; i < input.length; i++) {
             if (input[i] == '.' || input[i] == ':') 
                 input = input.substring(0, i) + ' ' + input.substring(i + 1);
