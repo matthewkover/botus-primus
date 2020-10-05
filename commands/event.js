@@ -15,12 +15,14 @@ class Event {
     }
     
     splitMessage(input) {
+        var tomb = [];
         for (var i = 0; i < input.length; i++) {
             if (input[i] == '.' || input[i] == ':') 
                 input = input.substring(0, i) + ' ' + input.substring(i + 1);
         }
-        input = input.split(" ");
-        return input.shift();
+        tomb = input.split(" ");
+        tomb.shift();
+        return tomb;
     }
     
     getEventName(tomb) {
