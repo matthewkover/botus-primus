@@ -14,16 +14,14 @@ class Event {
         return true;
     }
     
-    splitMessage(i) {
-        var tomb = [];
-        var input = String(i);
+    splitMessage(input) {
         for (var i = 0; i < input.length; i++) {
             if (input[i] == '.' || input[i] == ':') 
                 input = input.substring(0, i) + ' ' + input.substring(i + 1);
         }
-        tomb = input.split(" ");
-        tomb.shift();
-        return tomb;
+        input = input.split(" ");
+        input.shift();
+        return imput;
     }
     
     getEventName(tomb) {
