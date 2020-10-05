@@ -61,7 +61,7 @@ module.exports = {
         .setDescription('> ' + event)
         .addField('Time', '> ' + yy + '.' + mm + '.' + dd + '. ' + hh + ':' + min)
         .addFields (
-            { name: 'Accepted', value: '> ACCEPTED_USERS\n' + '> ', inline: true},
+            { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS'},
             { name: 'Declined', value: '> DECLINED_USERS', inline: true},
             { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
         )
