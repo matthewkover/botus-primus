@@ -8,7 +8,7 @@ class Event {
         this.tentative = tent;
     }
     
-    checkIfInt(yy, mm, dd, hh, min) {
+    checkInt(yy, mm, dd, hh, min) {
         if (!Number.isInteger(yy / 1) || !Number.isInteger(mm / 1) || !Number.isInteger(dd / 1) || !Number.isInteger(hh / 1) || !Number.isInteger(min / 1)) 
             return false;
         return true;
@@ -23,6 +23,16 @@ class Event {
         return input.shift();
     }
     
+    getEventName(tomb) {
+        var event = "";
+        for (var i = 0; i < tomb.length; i++) {
+            if (i == 0)
+                event = tomb[i];
+            else
+                event = event + " " + tomb[i];
+        }
+        return event;
+   } 
 }
 
 
@@ -30,10 +40,25 @@ module.exports = {
     name: 'event',
     description: 'Event reminders can be set by this command',
     execute(message, args, Discord) {
+        //
+        var e = new Event();
+        var tomb = e.splitMessage(message.chanel.content)
+        min = tomb[tomb.length - 1];
+        tomb.pop();
+        hh = tomb[tomb.length - 1];
+        tomb.pop();
+        dd = tomb[tomb.length - 1];
+        tomb.pop();
+        mm = tomb[tomb.length - 1];
+        tomb.pop();
+        yy = tomb[tomb.length - 1];
+        tomb.pop();
+        var event = e.getEventName(tomb);
+        
         const Embed = new Discord.MessageEmbed()
-        .setAuthor('EVENT_TITLE')
+        .setAuthor(event)
         .setDescription('')
-        .addField('Time', '> TIME')
+        .addField('Time', '> ' + yy + '.' + mm + '.' + dd + '. ' + hh + ':' + min)
         .addFields (
             { name: 'Accepted', value: '> ACCEPTED_USERS', inline: true},
             { name: 'Declined', value: '> DECLINED_USERS', inline: true},
