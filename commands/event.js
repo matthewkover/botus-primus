@@ -57,8 +57,8 @@ module.exports = {
         var event = e.getEventName(tomb);
         
         const Embed = new Discord.MessageEmbed()
-        .setAuthor(event)
-        .setDescription('')
+        .setAuthor('Event')
+        .setDescription('> ' + event)
         .addField('Time', '> ' + yy + '.' + mm + '.' + dd + '. ' + hh + ':' + min)
         .addFields (
             { name: 'Accepted', value: '> ACCEPTED_USERS', inline: true},
