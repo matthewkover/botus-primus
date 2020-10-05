@@ -17,7 +17,7 @@ module.exports = {
         } else if (temp.length == 3 && Number.isInteger(temp[1]/1) && Number.isInteger(temp[2]/1)) {
             message.reply("rolled " + "**" + getRandomInt(temp[1], temp[2]) + "**.").then(d => {d.delete({timeout: 1000 * 60 * 5})});
         } else {
-            message.channel.send("**Wrong input!**").then(d => {d.delete({timeout: 1000 * 60 * 5})});
+            message.channel.send("/tts **Wrong input!**").then(d => {d.delete({timeout: 1000 * 60 * 5})});
         }
     }
 }
