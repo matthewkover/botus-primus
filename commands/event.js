@@ -69,8 +69,8 @@ module.exports = {
         mm = tomb[tomb.length - 1];
         tomb.pop();
         yy = tomb[tomb.length - 1];
-        tomb.pop();*/
-        var event = e.getEventName(tomb);
+        tomb.pop();
+        var event = e.getEventName(tomb);*/
         var d = new Date (message.createdTimestamp)
         const Embed = new Discord.MessageEmbed()
         .setAuthor('Event')
