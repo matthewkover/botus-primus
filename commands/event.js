@@ -11,9 +11,11 @@ class Event {
     }
 }
 
-function checkInt(yy, mm, dd, hh, min) {
-    if (!Number.isInteger(yy / 1) || !Number.isInteger(mm / 1) || !Number.isInteger(dd / 1) || !Number.isInteger(hh / 1) || !Number.isInteger(min / 1)) 
-        return false;
+function checkInt(t) {
+    var x;
+    for (x in t)
+        if (!Number.isInteger(x))
+            return false;
     return true;
 }
 
@@ -50,7 +52,7 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])))
+    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])]))
         return true;
     return false;
 }    
