@@ -13,9 +13,10 @@ class Event {
 
 function checkInt(t) {
     var x;
-    for (x in t)
+    for (x in t) {
         if (!Number.isInteger(x))
             return false;
+    }  
     return true;
 }
 
