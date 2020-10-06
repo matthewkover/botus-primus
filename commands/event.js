@@ -16,15 +16,31 @@ function checkInt(t) {
     for (x in t) {
         if (Number.isInteger(x))
             bool = true;
-    }  
-    return true;
+    }
+    console.log("checkInt: " + bool);
+    return bool;
 }
 
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
 
 function checkValid(yy, mm, dd, hh, min) {
-    if ((0 < mm < 13) && (0 < dd < getDaysInMonth(yy,mm)+1) && (-1 < hh < 24) && (-1 < min < 60)) 
+    if ((0 < mm < 13) && (0 < dd < getDaysInMonth(yy,mm)+1) && (-1 < hh < 24) && (-1 < min < 60)) { 
+        console.log("checkValid: true");
         return true;
+    }
+    console.log("checkValid: false");
+    return false;
+}
+
+function checkIfDate(r) {
+    var i = r.length - 1;
+    if (i < 4)
+        return false;
+    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])])) {
+        console.log("checkIfDate: true");
+        return true;
+    }
+    console.log("checkIfDate: false");
     return false;
 }
 
@@ -36,15 +52,6 @@ function splitMessage(input) {
     input = input.split(" ");
     input.shift();
     return input;
-}
-
-function checkIfDate(r) {
-    var i = r.length - 1;
-    if (i < 4)
-        return false;
-    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])]))
-        return true;
-    return false;
 }
 
 function getEventName(tomb) {
