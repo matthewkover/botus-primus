@@ -25,7 +25,7 @@ var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
 function checkValid(yy, mm, dd, hh, min) {
     if ((0 < mm < 13) && (0 < dd <= getDaysInMonth(yy,mm)) && (0 <= hh < 24) && (0 <= min < 60)) 
         return true;
-    return false;
+    return true;
 }
 
 function splitMessage(input) {
