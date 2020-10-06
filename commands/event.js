@@ -20,7 +20,7 @@ function checkInt(yy, mm, dd, hh, min) {
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
 
 function checkValid(yy, mm, dd, hh, min) {
-    if ((0 < (mm/1) < 13) && (0 < (dd/1) <= getDaysInMonth(yy,mm)) && (0 <= (hh/1) < 24) && (0 <= (min/1) < 60)) 
+    if ((0 < Number(mm) < 13) && (0 < Number(dd) <= getDaysInMonth(Number(yy),Number(mm))) && (0 <= Number(hh) < 24) && (0 <= Number(min) < 60)) 
         return true;
     return false;
 }
