@@ -74,7 +74,7 @@ module.exports = {
         var d = new Date (message.createdTimestamp)
         const Embed = new Discord.MessageEmbed()
         .setAuthor('Event')
-        .setDescription('> ' + d)
+        .setDescription('> ' + d.toLocaleString())
         .addField('Time', '> ')
         .addFields (
             { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
