@@ -7,17 +7,17 @@ class Event {
         this.declined = dec;
         this.tentative = tent;
         this.madeBy = mb;
-
     }
 }
 
 function checkInt(t) {
+    var bool = false;
     var x;
     for (x in t) {
-        if (!Number.isInteger(x))
-            return false;
+        if (Number.isInteger(x))
+            bool = true;
     }  
-    return true;
+    return bool;
 }
 
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
@@ -38,6 +38,15 @@ function splitMessage(input) {
     return input;
 }
 
+function checkIfDate(r) {
+    var i = r.length - 1;
+    if (i < 4)
+        return false;
+    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])]))
+        return true;
+    return false;
+}
+
 function getEventName(tomb) {
     var event = "";
     for (var i = 0; i < tomb.length; i++) {
@@ -48,15 +57,7 @@ function getEventName(tomb) {
     }
     return event;
 } 
-
-function checkIfDate(r) {
-    var i = r.length - 1;
-    if (i < 4)
-        return false;
-    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])]))
-        return true;
-    return false;
-}    
+  
 function storeEvent(msg, e) {
     var raw = splitMessage(msg.content);
     var newevent = new Event();
