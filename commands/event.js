@@ -11,14 +11,12 @@ class Event {
 }
 
 function checkInt(t) {
-    var bool = false;
-    var x;
-    for (x in t) {
-        if (Number.isInteger(x))
-            bool = true;
+    var bool = true;
+    for (i = 0; i < t.length - 1; i++) {
+        if (!Number.isInteger(t[i]))
+            return false;
     }
-    console.log("checkInt: " + bool);
-    return bool;
+    return true;
 }
 
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
