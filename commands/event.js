@@ -1,5 +1,5 @@
 class Event {
-    constructor(id, ename, date, acc, dec, tent, mb, dm) {
+    constructor(id, ename, date, acc, dec, tent, mb) {
         this.eventId = id;
         this.eventName = ename;
         this.eventDate = date;
@@ -7,12 +7,20 @@ class Event {
         this.declined = dec;
         this.tentative = tent;
         this.madeBy = mb;
-        this.dateMade = dm;
+
     }
 }
 
 function checkInt(yy, mm, dd, hh, min) {
     if (!Number.isInteger(yy / 1) || !Number.isInteger(mm / 1) || !Number.isInteger(dd / 1) || !Number.isInteger(hh / 1) || !Number.isInteger(min / 1)) 
+        return false;
+    return true;
+}
+
+var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
+
+function checkValid(yy, mm, dd, hh, min) {
+    if (!(0 < mm/1 < 13) || !(0 < dd/1 <= getDaysInMonth(yy,mm)) || !(0 <= hh/1 < 24) || !(0 <= min/1 < 60)) 
         return false;
     return true;
 }
@@ -38,27 +46,28 @@ function getEventName(tomb) {
     return event;
 } 
 
+function checkIfDate(r) {
+    var i = r.length - 1;
+    if (i < 5)
+        return false;
+    if (checkInt(r[i-4],r[i-3],r[i-2],r[i-1],r[i]) && checkValid(r[i-4],r[i-3],r[i-2],r[i-1],r[i]))
+        return true;
+    return false;
+}    
 function storeEvent(msg, e) {
     var raw = splitMessage(msg.content);
     var newevent = new Event();
     newevent.eventId = 0;
-    newevent.eventName = 0;
-    newevent.eventDate = 0;
-    newevent.accepted = 0;
-    newevent.declined = 0;
-    newevent.tentative = 0;
+    newevent.eventDate = new Date();
+    newevent.eventName = getEventName(tomb);
+    newevent.accepted = [];
+    newevent.declined = [];
+    newevent.tentative = [];
     newevent.madeBy = msg.author.username;
-    newevent.dateMade = msg;
+
     
 }
 
-function createdDate(msg) {
-    var d = new Date (msg.createdTimestamp)
-    var td = new Date()
-    td = td.getHours();
-    d = d.toLocaleString();
-    return d;
-}
 
 module.exports = {
     name: 'event',
@@ -79,22 +88,28 @@ module.exports = {
         yy = tomb[tomb.length - 1];
         tomb.pop();
         var event = e.getEventName(tomb);*/
-        const Embed = new Discord.MessageEmbed()
-        .setAuthor('Event')
-        .setDescription('> ' + createdDate(message))
-        .addField('Time', '> Time')
-        .addFields (
-            { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
-            { name: 'Declined', value: '> DECLINED_USERS', inline: true},
-            { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
-        )
-        .setFooter('Created by ' + message.author.username)
-        .setTimestamp()
-        ;
-        message.channel.send(Embed).then(async msg => {
-            msg.react('✅')
-            msg.react('❌')
-            msg.react('❔')
-        });
+        var tout = 300000; //5 mins
+        var raw = splitMessage(message.content);
+        if (checkIfDate(raw)) {
+            const Embed = new Discord.MessageEmbed()
+            .setAuthor('Event')
+            .setDescription('> Event name')
+            .addField('Time', '> Event time')
+            .addFields (
+                { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
+                { name: 'Declined', value: '> DECLINED_USERS', inline: true},
+                { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
+            )
+            .setFooter('Created by ' + message.author.username)
+            .setTimestamp()
+            ;
+            message.channel.send(Embed).then(async msg => {
+                msg.react('✅')
+                msg.react('❌')
+                msg.react('❔')
+            });
+        } else {
+             message.channel.send("**Wrong date format!**").then(d => {d.delete({timeout: tout})});
+        }
     }
 }
