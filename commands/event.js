@@ -97,7 +97,7 @@ module.exports = {
             .setDescription('> Event name')
             .addField('Time', '> Event time ' + Number(raw[i-4])+ " " + Number(raw[i-3])+ " " + Number(raw[i-2])+ " " + Number(raw[i-1])+ " " +Number(raw[i]))
             .addFields (
-                { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
+                { name: 'Accepted', value: '> ' + 'ACCEPTED_USERS\n> ' + 'ACCEPTED_USERS', inline: true},
                 { name: 'Declined', value: '> DECLINED_USERS', inline: true},
                 { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
             )
