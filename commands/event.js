@@ -23,7 +23,7 @@ function checkInt(t) {
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
 
 function checkValid(yy, mm, dd, hh, min) {
-    if ((0 < mm < 13) && (0 < dd < getDaysInMonth(yy,mm)+1) && (-1 < hh < 24) && (-1 min < 60)) 
+    if ((0 < mm < 13) && (0 < dd < getDaysInMonth(yy,mm)+1) && (-1 < hh < 24) && (-1 < min < 60)) 
         return true;
     return false;
 }
