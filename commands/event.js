@@ -90,11 +90,12 @@ module.exports = {
         var event = e.getEventName(tomb);*/
         var tout = 300000; //5 mins
         var raw = splitMessage(message.content);
+        var i = raw.length-1;
         if (checkIfDate(raw)) {
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
             .setDescription('> Event name')
-            .addField('Time', '> Event time')
+            .addField('Time', '> Event time' + raw[i-4]+raw[i-3]+raw[i-2]+raw[i-1]+raw[i])
             .addFields (
                 { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
                 { name: 'Declined', value: '> DECLINED_USERS', inline: true},
