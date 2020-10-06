@@ -95,7 +95,7 @@ module.exports = {
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
             .setDescription('> Event name')
-            .addField('Time', '> Event time' + raw[i-4]+raw[i-3]+raw[i-2]+raw[i-1]+raw[i])
+            .addField('Time', '> Event time ' + Number(raw[i-4])+ " " + Number(raw[i-3])+ " " + Number(raw[i-2])+ " " + Number(raw[i-1])+ " " +Number(raw[i]))
             .addFields (
                 { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
                 { name: 'Declined', value: '> DECLINED_USERS', inline: true},
