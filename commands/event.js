@@ -21,8 +21,12 @@ function checkInt(t) {
 
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
 
+function checkBetween(x, min, max) {
+    return x >= min && x <= max;
+}
+
 function checkValid(yy, mm, dd, hh, min) {
-    if ((0 < mm < 13) && (0 < dd < getDaysInMonth(yy,mm)+1) && (-1 < hh < 24) && (-1 < min < 60)) { 
+    if (checkBetween(mm, 1, 12) && checkBetween(dd, 1, getDaysInMonth(yy, mm)) && checkBetween(hh, 0, 23) && checkBetween(min, 0, 59)) { 
         console.log("checkValid: true");
         return true;
     }
