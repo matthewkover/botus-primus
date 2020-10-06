@@ -53,7 +53,9 @@ function storeEvent(msg, e) {
 }
 
 function createdDate(msg) {
-    var d = new Date (msg.createdTimestamp, 'CET')
+    var d = new Date (msg.createdTimestamp)
+    var td = new Date()
+    td = td.getHours();
     d = d.toLocaleString();
     return d;
 }
