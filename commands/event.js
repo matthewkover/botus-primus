@@ -48,7 +48,7 @@ function getEventName(tomb) {
 
 function checkIfDate(r) {
     var i = r.length - 1;
-    if (i < 5)
+    if (i < 4)
         return false;
     if (checkInt(r[i-4],r[i-3],r[i-2],r[i-1],r[i]) && checkValid(r[i-4],r[i-3],r[i-2],r[i-1],r[i]))
         return true;
