@@ -52,6 +52,12 @@ function storeEvent(msg, e) {
     
 }
 
+function createdDate(msg) {
+    var d = new Date (msg.createdTimestamp, 'CET')
+    d = d.toLocaleString();
+    return d;
+}
+
 module.exports = {
     name: 'event',
     description: 'Event reminders can be set by this command',
@@ -71,10 +77,9 @@ module.exports = {
         yy = tomb[tomb.length - 1];
         tomb.pop();
         var event = e.getEventName(tomb);*/
-        var d = new Date (message.createdTimestamp)
         const Embed = new Discord.MessageEmbed()
         .setAuthor('Event')
-        .setDescription('> ' + d.toLocaleString())
+        .setDescription('> ' + createdDate(message))
         .addField('Time', '> Time')
         .addFields (
             { name: 'Accepted', value: '> ACCEPTED_USERS\n> ACCEPTED_USERS', inline: true},
