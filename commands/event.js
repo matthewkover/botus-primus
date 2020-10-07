@@ -38,12 +38,11 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    if (checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])) && checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])])) {
-        console.log("checkIfDate: true");
-        return true;
-    }
-    console.log("checkIfDate: false");
-    return false;
+    else if (!checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])])) 
+        return false;
+    else if (!checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])))
+        return false;
+    return true;
 }
 
 function splitMessage(input) {
