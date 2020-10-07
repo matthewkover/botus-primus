@@ -36,9 +36,8 @@ function splitMessage(input) {
         if (input[i] == '.' || input[i] == ':') 
             input = input.substring(0, i) + ' ' + input.substring(i + 1);
     }
-    input = input.split(" ");
-    input.shift();
-    return input;
+    input.split(" ");
+    return input.shift();
 }
 
 function getEventName(tomb) {
