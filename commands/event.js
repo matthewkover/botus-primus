@@ -29,7 +29,7 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    else if (!checkValid(r[i-4],r[i-3],r[i-2],r[i-1],r[i]))
+    else if (!checkValid(Number(r[i-4]),r[i-3],r[i-2],r[i-1],r[i]))
         return false;
     return true;
 }
