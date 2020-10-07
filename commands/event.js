@@ -20,7 +20,7 @@ function checkBetween(x, min, max) {
 }
 
 function checkValid(yy, mm, dd, hh, min) {
-    if (Number.isInteger(yy) && checkBetween(mm, 1, 12) && checkBetween(dd, 1, getDaysInMonth(yy, mm)) && checkBetween(hh, 0, 23) && checkBetween(min, 0, 59))
+    if (Number.isInteger(yy/1) && checkBetween(mm, 1, 12) && checkBetween(dd, 1, getDaysInMonth(yy, mm)) && checkBetween(hh, 0, 23) && checkBetween(min, 0, 59))
         return true;
     return false;
 }
@@ -29,7 +29,7 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    else if (!checkValid(Number(r[i-4]),r[i-3],r[i-2],r[i-1],r[i]))
+    else if (!checkValid(r[i-4],r[i-3],r[i-2],r[i-1],r[i]))
         return false;
     return true;
 }
