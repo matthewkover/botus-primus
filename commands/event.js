@@ -10,15 +10,6 @@ class Event {
     }
 }
 
-function checkInt(t) {
-    var bool = true;
-    for (i = 0; i < t.length - 1; i++) {
-        if (!Number.isInteger(t[i]))
-            return false;
-    }
-    return true;
-}
-
 var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
 
 function checkBetween(x, min, max) {
@@ -26,11 +17,8 @@ function checkBetween(x, min, max) {
 }
 
 function checkValid(yy, mm, dd, hh, min) {
-    if (checkBetween(mm, 1, 12) && checkBetween(dd, 1, getDaysInMonth(yy, mm)) && checkBetween(hh, 0, 23) && checkBetween(min, 0, 59)) { 
-        console.log("checkValid: true");
+    if (Number.isInteger(yy) && checkBetween(mm, 1, 12) && checkBetween(dd, 1, getDaysInMonth(yy, mm)) && checkBetween(hh, 0, 23) && checkBetween(min, 0, 59))
         return true;
-    }
-    console.log("checkValid: false");
     return false;
 }
 
@@ -38,10 +26,8 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    else if (!checkInt([r[i-4],r[i-3],r[i-2],r[i-1]])) 
+    else if (!checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])))
         return false;
-    /*else if (!checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])))
-        return false;*/
     return true;
 }
 
