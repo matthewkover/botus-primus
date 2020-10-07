@@ -10,7 +10,10 @@ class Event {
     }
 }
 
-var getDaysInMonth = function(yy, mm) {return new Date(yy, mm, 0).getDate();};
+function getDaysInMonth(yy, mm) {
+    var daysCount = new Date(yy, mm, 0).getDate();
+    return daysCount;
+}
 
 function checkBetween(x, min, max) {
     return x >= min && x <= max;
