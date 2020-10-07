@@ -38,10 +38,10 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    else if (!checkInt([Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1])])) 
+    else if (!checkInt([r[i-4],r[i-3],r[i-2],r[i-1])]) 
         return false;
-    else if (!checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])))
-        return false;
+    /*else if (!checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])))
+        return false;*/
     return true;
 }
 
@@ -107,7 +107,7 @@ module.exports = {
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
             .setDescription('> Event name')
-            .addField('Time', '> Event time ' + Number(raw[i-4])+ " " + Number(raw[i-3])+ " " + Number(raw[i-2])+ " " + Number(raw[i-1])+ " " +Number(raw[i]))
+            .addField('Time', '> Event time ' + raw[i-4]+ " " + raw[i-3]+ " " + raw[i-2]+ " " + raw[i-1]+ " " +raw[i])
             .addFields (
                 { name: 'Accepted', value: '> ' + 'ACCEPTED_USERS\n> ' + 'ACCEPTED_USERS', inline: true},
                 { name: 'Declined', value: '> DECLINED_USERS', inline: true},
