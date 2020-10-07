@@ -36,7 +36,7 @@ function splitMessage(input) {
         if (input[i] == '.' || input[i] == ':') 
             input = input.substring(0, i) + ' ' + input.substring(i + 1);
     }
-    input.split(" ");
+    input = input.split(" ");
     input.shift();
     return input;
 }
