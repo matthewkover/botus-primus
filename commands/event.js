@@ -38,7 +38,7 @@ function checkIfDate(r) {
     var i = r.length - 1;
     if (i < 4)
         return false;
-    else if (!checkInt([r[i-4],r[i-3],r[i-2],r[i-1])]) 
+    else if (!checkInt([r[i-4],r[i-3],r[i-2],r[i-1]])) 
         return false;
     /*else if (!checkValid(Number(r[i-4]),Number(r[i-3]),Number(r[i-2]),Number(r[i-1]),Number(r[i])))
         return false;*/
