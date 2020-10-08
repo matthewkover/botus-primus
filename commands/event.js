@@ -1,4 +1,4 @@
-class Event {
+/*class Event {
     constructor(id, ename, date, acc, dec, tent, mb) {
         this.eventId = id;
         this.eventName = ename;
@@ -114,4 +114,4 @@ module.exports = {
              message.channel.send("**Wrong date format!**").then(d => {d.delete({timeout: tout})});
         }      
     }
-}
+}*/
