@@ -1,3 +1,8 @@
+Date.prototype.addHours = function(h) {
+    this.setTime(this.getTime() + (h*60*60*1000));
+    return this;
+}
+
 class Event {
     constructor(id, ename, date, acc, dec, tent, mb) {
         this.eventId = id;
@@ -11,7 +16,7 @@ class Event {
     
     timeToString() {
         var idopont = "";
-        var today = new Date();
+        var today = new Date().addHours(2);
         if (this.eventDate.getDay() == today.getDay())
             idopont = "Today at " + this.eventDate.getHours() + ":" + this.eventDate.getMinutes();
         else if (this.eventDate.getDay() == (today.getDay() + 1))
