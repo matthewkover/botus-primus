@@ -1,4 +1,4 @@
-/*class Event {
+class Event {
     constructor(id, ename, date, acc, dec, tent, mb) {
         this.eventId = id;
         this.eventName = ename;
@@ -7,6 +7,18 @@
         this.declined = dec;
         this.tentative = tent;
         this.madeBy = mb;
+    }
+    
+    timeToString() {
+        var idopont = "";
+        var today = new Date();
+        if (this.eventDate.getDay() == today.getDay())
+            idopont = "Today at" + this.eventDate.getHours() + ":" + this.eventDate.getMinutes();
+        else if (this.eventDate.getDay() == (today.getDay() + 1))
+            idopont = "Tomorrow at" + this.eventDate.getHours() + ":" + this.eventDate.getMinutes() + " (" + this.eventDate.toDateString() + ")";
+        else 
+            idopont = this.eventDate.toDateString() + " " + this.eventDate.getHours() + ":" + this.eventDate.getMinutes();
+        return idopont;
     }
 }
 
@@ -70,19 +82,6 @@ function storeEvent(r, ma) {
     return newevent;
 }
 
-function eventTimeToString(e) {
-    var idopont = "";
-    var today = new Date();
-    if (e.getDay() == today.getDay())
-        idopont = "Today at" + e.getHours() + ":" + e.getMinutes();
-    else if (e.getDay() == (today.getDay() + 1))
-        idopont = "Tomorrow at" + e.getHours() + ":" + e.getMinutes() + " (" + e.toDateString() + ")";
-    else 
-        idopont = e.toDateString() + " " + e.getHours() + ":" + e.getMinutes();
-    return idopont;
-}
-
-
 module.exports = {
     name: 'event',
     description: 'Event reminders can be set by this command',
@@ -92,11 +91,11 @@ module.exports = {
         message.delete({timeout: tout});
         if (checkIfDate(raw)) {
             var event = storeEvent(raw, message.author.username);
-            var date = eventTimeToString(event.eventDate);
+            //var date = eventTimeToString(event.eventDate);
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event: ' + event.eventName)
             .setDescription('> Created by: ' + event.madeBy)
-            .addField('Time', '> ' + eventTimeToString(date))
+            .addField('Time', '> ' + event.timeToString())
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
@@ -114,4 +113,4 @@ module.exports = {
              message.channel.send("**Wrong date format!**").then(d => {d.delete({timeout: tout})});
         }      
     }
-}*/
+}
