@@ -89,7 +89,6 @@ module.exports = {
     execute(message, args, Discord) {
         var tout = 300000; //5 mins
         var raw = splitMessage(message.content);
-        var i = raw.length-1;
         message.delete({timeout: tout});
         if (checkIfDate(raw)) {
             var event = storeEvent(raw, message.author.username);
