@@ -59,7 +59,7 @@ function storeEvent(r, ma) {
     var i = r.length - 1;
     var newevent = new Event();
     newevent.eventId = 0;
-    newevent.eventDate = new Date(r[i-4],r[i-3]-1),r[i-2],r[i-1],r[i]);
+    newevent.eventDate = new Date(r[i-4],r[i-3]-1,r[i-2],r[i-1],r[i]);
     for (i = 0; i < 5; i++) 
         r.pop();
     newevent.eventName = getEventName(r);
@@ -70,7 +70,7 @@ function storeEvent(r, ma) {
     return newevent;
 }
 
-/*function eventTimeToString(e) {
+function eventTimeToString(e) {
     var idopont = "";
     var today = new Date();
     if (e.getDay() == today.getDay())
@@ -80,7 +80,7 @@ function storeEvent(r, ma) {
     else 
         idopont = e.toDateString() + " " + e.getHours() + ":" + e.getMinutes();
     return idopont;
-}*/
+}
 
 
 module.exports = {
@@ -92,11 +92,11 @@ module.exports = {
         message.delete({timeout: tout});
         if (checkIfDate(raw)) {
             var event = storeEvent(raw, message.author.username);
-            //var date = eventTimeToString(event.eventDate);
+            var date = eventTimeToString(event.eventDate);
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event • Created by ' + event.madeBy)
             .setDescription('> ' + event.eventName)
-            .addField('Time', '> ')
+            .addField('Time', '> ' + eventTimeToString(date))
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
