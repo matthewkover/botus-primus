@@ -97,7 +97,7 @@ module.exports = {
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event • Created by ' + event.madeBy)
             .setDescription('> ' + event.eventName)
-            .addField('Time', '> ' + date.eventTimeToString())
+            .addField('Time', '> ' + eventTimeToString(date))
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
