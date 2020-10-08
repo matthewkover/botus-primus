@@ -94,10 +94,11 @@ module.exports = {
         var i = raw.length-1;
         if (checkIfDate(raw)) {
             var event = storeEvent(raw, message.author.username);
+            var date = event.eventDate;
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
             .setDescription('> ' + event.eventName)
-            .addField('Time', '> ' + event.eventDate)
+            .addField('Time', '> ' + date.toDateString())
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
