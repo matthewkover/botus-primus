@@ -59,7 +59,7 @@ function storeEvent(r, ma) {
     var i = r.length - 1;
     var newevent = new Event();
     newevent.eventId = 0;
-    newevent.eventDate = new Date(r[i-4]/1,(r[i-3]-1)/1,r[i-2]/1,r[i-1]/1,r[i]/1);
+    newevent.eventDate = new Date(r[i-4],r[i-3]-1),r[i-2],r[i-1],r[i]);
     for (i = 0; i < 5; i++) 
         r.pop();
     newevent.eventName = getEventName(r);
@@ -68,6 +68,18 @@ function storeEvent(r, ma) {
     newevent.tentative = "t_teszt";
     newevent.madeBy = ma;
     return newevent;
+}
+
+function eventTimeToString(e) {
+    var idopont = "";
+    var today = new Date();
+    if (e.getDay() == today.getDay())
+        idopont = "Today " + e.getHours() + ":" e.getMinutes();
+    else if (e.getDay() == today.getDay() + 1)
+        idopont = "Tomorrow " + e.getHours() + ":" e.getMinutes() + " " + e.toDateString();
+    else 
+        idopont = 3.toDateString() + " " + e.getHours() + ":" e.getMinutes();
+    return idopont;
 }
 
 
@@ -85,7 +97,7 @@ module.exports = {
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event • Created by ' + event.madeBy)
             .setDescription('> ' + event.eventName)
-            .addField('Time', '> ' + date.toDateString())
+            .addField('Time', '> ' + date.eventTimeToString())
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
