@@ -75,30 +75,15 @@ module.exports = {
     name: 'event',
     description: 'Event reminders can be set by this command',
     execute(message, args, Discord) {
-        //
-        /*var events = [];
-        var e = new Event();
-        var tomb = e.splitMessage(message.content)
-        min = tomb[tomb.length - 1];
-        tomb.pop();
-        hh = tomb[tomb.length - 1];
-        tomb.pop();
-        dd = tomb[tomb.length - 1];
-        tomb.pop();
-        mm = tomb[tomb.length - 1];
-        tomb.pop();
-        yy = tomb[tomb.length - 1];
-        tomb.pop();
-        var event = e.getEventName(tomb);*/
         var tout = 300000; //5 mins
         var raw = splitMessage(message.content);
         var i = raw.length-1;
+        message.delete({timeout: tout});
         if (checkIfDate(raw)) {
             var event = storeEvent(raw, message.author.username);
             var date = event.eventDate;
             const Embed = new Discord.MessageEmbed()
-            .setAuthor('Event')
-            //.addfield('Created by ' + event.madeBy, inline: true) 
+            .setAuthor('Event • Created by ' + event.madeBy)
             .setDescription('> ' + event.eventName)
             .addField('Time', '> ' + date.toDateString())
             .addFields (
@@ -116,6 +101,6 @@ module.exports = {
             });
         } else {
              message.channel.send("**Wrong date format!**").then(d => {d.delete({timeout: tout})});
-        }
+        }      
     }
 }
