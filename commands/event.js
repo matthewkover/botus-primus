@@ -74,9 +74,9 @@ function storeEvent(r, ma) {
     var idopont = "";
     var today = new Date();
     if (e.getDay() == today.getDay())
-        idopont = "Today " + e.getHours() + ":" + e.getMinutes();
+        idopont = "Today at" + e.getHours() + ":" + e.getMinutes();
     else if (e.getDay() == (today.getDay() + 1))
-        idopont = "Tomorrow " + e.getHours() + ":" + e.getMinutes() + " " + e.toDateString();
+        idopont = "Tomorrow at" + e.getHours() + ":" + e.getMinutes() + " (" + e.toDateString() + ")";
     else 
         idopont = e.toDateString() + " " + e.getHours() + ":" + e.getMinutes();
     return idopont;
