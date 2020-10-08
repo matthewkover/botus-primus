@@ -98,8 +98,8 @@ module.exports = {
             var event = storeEvent(raw, message.author.username);
             //var date = eventTimeToString(event.eventDate);
             const Embed = new Discord.MessageEmbed()
-            .setAuthor('Event: ' + event.eventName)
-            .setDescription('> Created by: ' + event.madeBy)
+            .setAuthor('Event • ' + event.eventName)
+            .setDescription('> Created by ' + event.madeBy)
             .addField('Time', '> ' + event.timeToString())
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
