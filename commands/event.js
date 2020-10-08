@@ -98,16 +98,16 @@ module.exports = {
             var date = event.eventDate;
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
+            .addfield('Created by ' + event.madeBy, inline: true) 
             .setDescription('> ' + event.eventName)
             .addField('Time', '> ' + date.toDateString())
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
                 { name: 'Tentative', value: '> ' + event.tentative, inline: true},
-            )
-            .addfield('Created by ' + event.madeBy)
+            )           
+            .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
             .setTimestamp()
-            .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')       
             ;
             message.channel.send(Embed).then(async msg => {
                 msg.react('✅')
