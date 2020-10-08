@@ -73,9 +73,9 @@ function storeEvent(r, ma) {
 function eventTimeToString(e) {
     var idopont = "";
     var today = new Date();
-    if (e.getDay() == today.getDay())
+    /*if (e.getDay() == today.getDay())
         idopont = "Today " + e.getHours() + ":" + e.getMinutes();
-    /*else if (e.getDay() == (today.getDay() + 1))
+    else if (e.getDay() == (today.getDay() + 1))
         idopont = "Tomorrow " + e.getHours() + ":" + e.getMinutes() + " " + e.toDateString();
     else 
         idopont = e.toDateString() + " " + e.getHours() + ":" + e.getMinutes();*/
