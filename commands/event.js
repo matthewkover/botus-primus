@@ -58,7 +58,7 @@ function getEventName(tomb) {
 function storeEvent(r, ma) {
     var newevent = new Event();
     newevent.eventId = 0;
-    newevent.eventDate = new Date(r[i-4],r[i-3],r[i-2],r[i-1],r[i]);
+    newevent.eventDate = new Date();//r[i-4],r[i-3],r[i-2],r[i-1],r[i]);
     for (i = 0; i < 5; i++) 
         r.pop();
     newevent.eventName = getEventName(r);
