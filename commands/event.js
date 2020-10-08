@@ -93,11 +93,11 @@ module.exports = {
         message.delete({timeout: tout});
         if (checkIfDate(raw)) {
             var event = storeEvent(raw, message.author.username);
-            var date = event.eventDate;
+            var date = eventTimeToString(event.eventDate);
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event • Created by ' + event.madeBy)
             .setDescription('> ' + event.eventName)
-            .addField('Time', '> ' + eventTimeToString(date))
+            .addField('Time', '> ' + date)
             .addFields (
                 { name: 'Accepted', value: '> ' + event.accepted, inline: true},
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
