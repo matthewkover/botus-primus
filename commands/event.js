@@ -55,18 +55,18 @@ function getEventName(tomb) {
     return event;
 } 
   
-function storeEvent(msg, e) {
-    var raw = splitMessage(msg.content);
+function storeEvent(r, ma) {
     var newevent = new Event();
     newevent.eventId = 0;
-    newevent.eventDate = new Date();
-    newevent.eventName = getEventName(tomb);
-    newevent.accepted = [];
-    newevent.declined = [];
-    newevent.tentative = [];
-    newevent.madeBy = msg.author.username;
-
-    
+    newevent.eventDate = new Date(r[i-4],r[i-3],r[i-2],r[i-1],r[i]);
+    for (i = 0; i < 5; i++) 
+        r.pop();
+    newevent.eventName = getEventName(r);
+    newevent.accepted = "a_teszt";
+    newevent.declined = "d_teszt";
+    newevent.tentative = "t_teszt";
+    newevent.madeBy = ma;
+    return newevent;
 }
 
 
@@ -93,16 +93,17 @@ module.exports = {
         var raw = splitMessage(message.content);
         var i = raw.length-1;
         if (checkIfDate(raw)) {
+            var event = storeEvent(raw, message.author.username);
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
-            .setDescription('> Event name')
-            .addField('Time', '> Event time ' + raw[i-4]+ " " + raw[i-3]+ " " + raw[i-2]+ " " + raw[i-1]+ " " +raw[i])
+            .setDescription('> ' + event.eventName)
+            .addField('Time', '> ' + event.eventDate)
             .addFields (
-                { name: 'Accepted', value: '> ' + 'ACCEPTED_USERS\n> ' + 'ACCEPTED_USERS', inline: true},
-                { name: 'Declined', value: '> DECLINED_USERS', inline: true},
-                { name: 'Tentative', value: '> TENTATIVE_USERS', inline: true},
+                { name: 'Accepted', value: '> ' + event.accepted, inline: true},
+                { name: 'Declined', value: '> ' + event.declined, inline: true},
+                { name: 'Tentative', value: '> ' + event.tentative, inline: true},
             )
-            .setFooter('Created by ' + message.author.username)
+            .setFooter('Created by ' + event.madeBy)
             .setTimestamp()
             ;
             message.channel.send(Embed).then(async msg => {
