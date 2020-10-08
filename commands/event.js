@@ -78,7 +78,7 @@ function eventTimeToString(e) {
     else if (e.getDay() == today.getDay() + 1)
         idopont = "Tomorrow " + e.getHours() + ":" e.getMinutes() + " " + e.toDateString();
     else 
-        idopont = 3.toDateString() + " " + e.getHours() + ":" e.getMinutes();
+        idopont = e.toDateString() + " " + e.getHours() + ":" e.getMinutes();
     return idopont;
 }
 
