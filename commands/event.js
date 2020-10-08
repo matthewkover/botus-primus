@@ -20,7 +20,7 @@ class Event {
         if (this.eventDate.getDay() == today.getDay())
             idopont = "Today at " + this.eventDate.getHours() + ":" + this.eventDate.getMinutes();
         else if (this.eventDate.getDay() == (today.getDay() + 1))
-            idopont = "Tomorrow at " + this.eventDate.getHours() + ":" + this.eventDate.getMinutes() + " (" + this.eventDate.toDateString() + ") " + today.getDay() + " " +today.getHours();
+            idopont = "Tomorrow at " + this.eventDate.getHours() + ":" + this.eventDate.getMinutes() + " (" + this.eventDate.toDateString() + ")";
         else 
             idopont = this.eventDate.toDateString() + " " + this.eventDate.getHours() + ":" + this.eventDate.getMinutes();
         return idopont;
