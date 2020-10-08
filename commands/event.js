@@ -98,7 +98,7 @@ module.exports = {
             var date = event.eventDate;
             const Embed = new Discord.MessageEmbed()
             .setAuthor('Event')
-            .addfield('Created by ' + event.madeBy, inline: true) 
+            //.addfield('Created by ' + event.madeBy, inline: true) 
             .setDescription('> ' + event.eventName)
             .addField('Time', '> ' + date.toDateString())
             .addFields (
