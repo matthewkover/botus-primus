@@ -105,8 +105,9 @@ module.exports = {
                 { name: 'Declined', value: '> ' + event.declined, inline: true},
                 { name: 'Tentative', value: '> ' + event.tentative, inline: true},
             )
-            .setFooter('Created by ' + event.madeBy)
+            .addfield('Created by ' + event.madeBy)
             .setTimestamp()
+            .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')       
             ;
             message.channel.send(Embed).then(async msg => {
                 msg.react('✅')
