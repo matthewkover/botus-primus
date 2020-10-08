@@ -80,7 +80,7 @@ client.on('message', message => {
             client.commands.get('status').execute(message, args, ping, Discord, updateStatusIcon, updateStatusText);
         break;
         case 'event':
-            //client.commands.get('event').execute(message, args, Discord);
+            client.commands.get('event').execute(message, args, Discord);
         break;
         case 'roll':
             client.commands.get('roll').execute(message, args);
