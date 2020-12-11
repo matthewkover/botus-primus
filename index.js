@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fetch = require('node-fetch');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const PREFIX = "!";
@@ -89,7 +90,7 @@ client.on('message', message => {
             client.commands.get('championpool').execute(message, args);
         break;
         case 'code':
-            client.commands.get('code').execute(message, args);
+            client.commands.get('code').execute(message, args, fetch);
         break;
         default:
             message.channel.send('The following command does not exists: **!' + command + '**\nWrite **!help** to see the list of things I can do.');
