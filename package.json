@@ -14,7 +14,7 @@
   "author": "Mate Kover",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.1.1",
-    "minecraft-server-util": "^1.1.0"
+    "discord.js": "^12.5.1",
+    "minecraft-server-util": "^1.4.3"
   }
 }
