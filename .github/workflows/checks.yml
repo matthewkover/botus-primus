@@ -2,7 +2,7 @@ name: botus-primus CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev ]
   pull_request:
     branches: [ master ]
 
@@ -28,4 +28,4 @@ jobs:
     - name: Heroku login
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku auth login
+      run: heroku container:login
