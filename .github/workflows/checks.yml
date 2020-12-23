@@ -32,5 +32,8 @@ jobs:
     - name: Build and push to dev environment
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }} || git push heroku master
+      run: |
+        echo heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
+        echo git push heroku master
+        echo heroku logs --app=${{ secrets.HEROKU_APP_NAME }}
      
