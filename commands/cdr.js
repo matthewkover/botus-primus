@@ -13,7 +13,7 @@ module.exports = {
             message.channel.send("**Wrong input!**").then(d => {d.delete({timeout: tout})});
         else {
             var ah = 100 * (1 / (1 -  parseInt(temp[1], 10) / 100) - 1) 
-            message.channel.send("You need " + "**" + parseInt(ah, 10) + "**" + " ability haste to achive " + temp[1] + " CDR.").then(d => {d.delete({timeout: tout})});
+            message.channel.send("You need " + "**" + parseInt(ah, 10) + "**" + " ability haste to achive **" + temp[1] + "%** CDR.").then(d => {d.delete({timeout: tout})});
         }
     }
 }
