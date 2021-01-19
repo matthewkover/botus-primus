@@ -4,7 +4,7 @@ function isInt(str) {
 
 module.exports = {
     name: 'cdr',
-    description: 'This converts CDR to AH.',
+    description: 'This command converts CDR to AH.',
     execute(message, args) {
         var tout = 300000; //5 mins
         var temp = message.content.split(" ");
