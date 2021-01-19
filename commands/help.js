@@ -6,7 +6,7 @@ module.exports = {
             .setAuthor('The list of things I can do')
             .setDescription('Use the ! key before commands to make them work.')
             .addFields(
-                {name: 'Usable commands:', value: '`help`\n `role`\n `ping`\n `status`\n `communism`\n `roll`\n> roll\n> roll [#]\n> roll [#1] [#2]\n `championpool`'}
+                {name: 'Usable commands:', value: '`help`\n `role`\n `ping`\n `status`\n `communism`\n `roll`\n> roll\n> roll [#]\n> roll [#1] [#2]\n `championpool` `cdr [#]`\n `ah [#]`\n'}
             )
             .setFooter('Brought to you with love from Commissar Botus Primus.', 'https://cdn.discordapp.com/attachments/630197241033785344/697888385338966076/123.jpg')
             .setTimestamp()
