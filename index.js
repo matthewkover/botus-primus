@@ -92,6 +92,12 @@ client.on('message', message => {
         case 'code':
             client.commands.get('code').execute(message, args, fetch);
         break;
+        case 'cdr':
+            client.commands.get('cdr').execute(message, args);
+        break;
+        case 'ah':
+            client.commands.get('ah').execute(message, args);
+        break;    
         default:
             message.channel.send('The following command does not exists: **!' + command + '**\nWrite **!help** to see the list of things I can do.');
     }
