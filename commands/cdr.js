@@ -13,6 +13,7 @@ module.exports = {
         if (temp.length <= 1 || !isInt(temp[1]))
             message.channel.send("**Wrong input!**").then(d => {d.delete({timeout: tout})});
         else
-            message.channel.send("You need " + "**" + (100 * ((1 / ( 1 - int(temp[1]))) -1)) + "**" + "ability haste to achive" + temp[1] + "CDR.").then(d => {d.delete({timeout: tout})});    
+            var ah = 100 * ((1 / (1 - parseInt(temp[1], 10)) -1)) 
+            message.channel.send("You need " + "**" + ah + "**" + "ability haste to achive" + temp[1] + "CDR.").then(d => {d.delete({timeout: tout})});    
     }
 }
