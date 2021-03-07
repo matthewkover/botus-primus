@@ -58,7 +58,7 @@ client.on('message', message => {
             client.commands.get('role').execute(message, args);
         break;
         case 'status':
-            client.commands.get('status').execute(message, args, ping, Discord, updateStatusIcon, updateStatusText);
+            client.commands.get('status').execute(message, args, ping, Discord);
         break;
         case 'event':
             client.commands.get('event').execute(message, args, Discord);
