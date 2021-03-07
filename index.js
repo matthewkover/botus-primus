@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
-const fetch = require('node-fetch');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const PREFIX = "!";
+const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
