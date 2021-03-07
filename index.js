@@ -18,7 +18,6 @@ client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusIcon();
     updateStatusText();
-    client.user.setActivity('!help', {type:'LISTENING'})
     setInterval(updateStatusText, 1 * 60 * 1000)
     setInterval(updateStatusIcon, 1 * 60 * 1000)
 })
@@ -27,9 +26,11 @@ client.on('ready', () =>{
 function updateStatusText() {
     ping('afb.servegame.com', 25565, (error, response) => {
         console.log("Query was made.")
-        if (response !== null) {  
+        if (response !== null) {
+            client.user.setActivity('!help', {type:'LISTENING'})
         }
         if (response == null) {
+            client.user.setActivity('!help', {type:'LISTENING'})
         }
     });
 };
