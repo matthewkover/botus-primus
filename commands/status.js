@@ -1,7 +1,7 @@
 module.exports = {
     name: 'status',
     description: 'This command pings the hardwired Minecraft channel and gives a status.',
-    execute(message, args, ping, Discord, updateStatusIcon, updateStatusText) {
+    execute(message, args, ping, Discord) {
         ping('afb.servegame.com', 25565, (error, response) => {
             
             
