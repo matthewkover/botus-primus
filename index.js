@@ -18,19 +18,18 @@ client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusIcon();
     updateStatusText();
+    client.user.setActivity('!help', {type:'LISTENING'})
     setInterval(updateStatusText, 1 * 60 * 1000)
     setInterval(updateStatusIcon, 1 * 60 * 1000)
 })
 
 // STATUS TEXT QUERY
 function updateStatusText() {
-    ping('51.178.75.64', 41489, (error, response) => {
+    ping('afb.servegame.com', 25565, (error, response) => {
         console.log("Query was made.")
-        if (response !== null) {
-            client.user.setActivity('!help', {type:'LISTENING'})
+        if (response !== null) {  
         }
         if (response == null) {
-            client.user.setActivity(' !help', {type:'LISTENING'})
         }
     });
 };
