@@ -3,21 +3,17 @@ const fetch = require('node-fetch');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const PREFIX = "!";
-const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
 // READ COMMAND DIRECTORY
-
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
-
     client.commands.set(command.name, command);
 }
 
 // STARTUP
-
 client.on('ready', () =>{
     console.log('Bot is online.');
     updateStatusIcon();
@@ -27,7 +23,6 @@ client.on('ready', () =>{
 })
 
 // STATUS TEXT QUERY
-
 function updateStatusText() {
     ping('51.178.75.64', 41489, (error, response) => {
         console.log("Query was made.")
@@ -40,24 +35,7 @@ function updateStatusText() {
     });
 };
 
-// STATUS ICON QUERY
-
-function updateStatusIcon() {
-    ping('51.178.75.64', 41489, (error, response) => {
-        if (response !== null && response.onlinePlayers !== 0) {
-            client.user.setStatus('online')
-        }
-        if (response !== null && response.onlinePlayers == 0) {
-            client.user.setStatus('online')
-        }
-        if (response == null) {
-            client.user.setStatus('online')
-        }
-    });
-};
-
 // CHAT COMMANDS
-
 client.on('message', message => {
     if(!message.content.startsWith(PREFIX) || message.author.bot) return;
 
