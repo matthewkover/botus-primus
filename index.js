@@ -67,9 +67,6 @@ client.on('message', message => {
         case 'championpool':
             client.commands.get('championpool').execute(message, args);
         break;
-        case 'code':
-            client.commands.get('code').execute(message, args, fetch);
-        break;
         case 'cdr':
             client.commands.get('cdr').execute(message, args);
         break;
