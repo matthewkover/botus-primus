@@ -25,7 +25,7 @@ module.exports = {
                 .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
                 .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
                 .addFields(
-                    { name: 'Description', value: response.descriptionText.substring(3, response.descriptionText.length) },
+                    { name: 'Description', value: 'Created by AllFillBoiz'},
                     { name: 'Server IP', value: response.host },
                     { name: 'Online players', value: "There are no players online" },
                     { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' + 'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
@@ -51,7 +51,7 @@ module.exports = {
                 .setAuthor('All Fill Boys Server', 'https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png', '')
                 .setThumbnail('https://cdn.discordapp.com/attachments/630197241033785344/695383822564589608/AFB_LOGO_1.png')
                 .addFields(
-                    { name: 'Description', value: response.descriptionText.substring(3, response.descriptionText.length) },
+                    { name: 'Description', value: 'Created by AllFillBoiz'},
                     { name: 'Server IP', value: response.host },
                     { name: 'Online players', value: players },
                     { name: 'Players', value: 'Online: ' + '`' + response.onlinePlayers + '`' + '\n' + 'Maximum: ' + '`' + response.maxPlayers + '`', inline: true},
