@@ -28,10 +28,12 @@ function updateStatusText() {
     ping('afb.servegame.com', 25565, (error, response) => {
         console.log('Query was made.')
         if (response !== null && prev_status == false) {
+            console.log('started')
             channel.send('Server has started')
             prev_status = true
         }
         if (response == null && prev_status == true) {
+            console.log('stopped')
             channel.send('Server has stoped')
             prev_status = false
         }
