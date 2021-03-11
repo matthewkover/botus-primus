@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const PREFIX = "!";
 const fs = require('fs');
-const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
+//const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
 var prev_status = false;
 
 client.commands = new Discord.Collection();
@@ -29,12 +29,12 @@ function updateStatusText() {
         console.log('Query was made.')
         if (response !== null && prev_status == false) {
             console.log('started')
-            channel.send('Server has started')
+            //channel.send('Server has started')
             prev_status = true
         }
         if (response == null && prev_status == true) {
             console.log('stopped')
-            channel.send('Server has stoped')
+            //channel.send('Server has stoped')
             prev_status = false
         }
     });
