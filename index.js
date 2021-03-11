@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const PREFIX = "!";
 const fs = require('fs');
+const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
 var prev_status = false;
 
 client.commands = new Discord.Collection();
@@ -17,18 +18,22 @@ for (const file of commandFiles) {
 // STARTUP
 client.on('ready', () =>{
     console.log('Bot is online.');
-    client.user.setActivity('!help', {type:'LISTENING'})   
+    client.user.setActivity('!help', {type:'LISTENING'})
+    updateStatusText();
+    setInterval(updateStatusText, 1 * 60 * 1000)
 })
 
 // STATUS TEXT QUERY
 function updateStatusText() {
     ping('afb.servegame.com', 25565, (error, response) => {
-        console.log("Query was made.")
+        console.log('Query was made.')
         if (response !== null && prev_status == false) {
-            console.log("Server has started")
+            channel.send('Server has started")
+            prev_status = true
         }
         if (response == null && prev_status == true) {
-            console.log("Server has stoped") 
+            channel.send('Server has stoped')
+            prev_status = false
         }
     });
 };
