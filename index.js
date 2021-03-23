@@ -18,7 +18,7 @@ for (const file of commandFiles) {
 // STARTUP
 client.on('ready', () =>{
     console.log('Bot is online.');
-    client.user.setActivity('!help', {type:'LISTENING'})
+    client.user.setActivity('+help', {type:'LISTENING'})
     updateStatusText();
     setInterval(updateStatusText, 1 * 60 * 1000)
 })
