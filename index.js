@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
-const PREFIX = "+";
+const PREFIX = process.env.PREFIX;
 const fs = require('fs');
 //const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
 var prev_status = false;
@@ -18,7 +18,7 @@ for (const file of commandFiles) {
 // STARTUP
 client.on('ready', () =>{
     console.log('Bot is online.');
-    client.user.setActivity('+help', {type:'LISTENING'})
+    client.user.setActivity('!help', {type:'LISTENING'})
     updateStatusText();
     setInterval(updateStatusText, 1 * 60 * 1000)
 })
@@ -79,7 +79,7 @@ client.on('message', message => {
             client.commands.get('ah').execute(message, args);
         break;    
         default:
-            message.channel.send('The following command does not exists: **+' + command + '**\nWrite **+help** to see the list of things I can do.');
+            message.channel.send('The following command does not exists: **!' + command + '**\nWrite **!help** to see the list of things I can do.');
     }
 })
 
