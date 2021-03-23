@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
-const PREFIX = "!";
+const PREFIX = "+";
 const fs = require('fs');
 //const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
 var prev_status = false;
