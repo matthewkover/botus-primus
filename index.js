@@ -3,10 +3,15 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const fs = require('fs');
+const mongoose = require('mongoose')
 
 // BOT SETTINGS - Change these to deploy the bot locally 
 const PREFIX = process.env.PREFIX;
 const TOKEN = process.env.BOT_TOKEN;
+const DB_LOGIN = process.env.DB_LOGIN;
+
+// CONNECT TO DATABASE
+mongoose.connect(`mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`, { useNewUrlParser: true, useUnifiedTopology: true})
 
 var prev_status = false;
 

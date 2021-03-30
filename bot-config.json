@@ -1,4 +1,0 @@
-{
-    "PREFIX": "process.env.PREFIX",
-    "TOKEN": "process.env.BOT_TOKEN"
-}
