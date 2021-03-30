@@ -1,7 +1,9 @@
+// LIBRARIES
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
-const PREFIX = process.env.PREFIX;
+const {PREFIX, TOKEN} = require('./bot-config.json')
 const fs = require('fs');
 //const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
 var prev_status = false;
@@ -83,4 +85,6 @@ client.on('message', message => {
     }
 })
 
-client.login(process.env.BOT_TOKEN);
+// BOT LOGIN
+
+client.login(TOKEN);
