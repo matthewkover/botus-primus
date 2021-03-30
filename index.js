@@ -1,11 +1,13 @@
 // LIBRARIES
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
-const {PREFIX, TOKEN} = require('./bot-config.json')
 const fs = require('fs');
-//const channel = client.channels.cache.find(channel => channel.name === 'minecraft')
+
+// BOT SETTINGS - Change these to deploy the bot locally 
+const PREFIX = process.env.PREFIX;
+const TOKEN = process.env.BOT_TOKEN;
+
 var prev_status = false;
 
 client.commands = new Discord.Collection();
@@ -86,5 +88,4 @@ client.on('message', message => {
 })
 
 // BOT LOGIN
-
 client.login(TOKEN);
