@@ -9,9 +9,17 @@ const mongoose = require('mongoose')
 const PREFIX = process.env.PREFIX;
 const TOKEN = process.env.BOT_TOKEN;
 const DB_LOGIN = process.env.DB_LOGIN;
+const DB_SRV = `mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`;
 
 // CONNECT TO DATABASE
-mongoose.connect(`mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`, { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(DB_SRV, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+}).then(()=>{
+    console.log('Connected to the database.')
+}).catch((err) => {
+    console.log(err)
+});
 
 var prev_status = false;
 
@@ -86,7 +94,11 @@ client.on('message', message => {
         break;
         case 'ah':
             client.commands.get('ah').execute(message, args);
-        break;    
+        break;
+        case 'log':
+            console.log(message)
+            message.channel.send('Message parameters logged')
+        break;
         default:
             message.channel.send(`The following command does not exists: **${PREFIX}` + command + `**\nWrite **${PREFIX}help** to see the list of things I can do.`);
     }
