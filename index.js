@@ -6,9 +6,15 @@ const fs = require('fs');
 const mongoose = require('mongoose')
 
 // BOT SETTINGS - Change these to deploy the bot locally 
+/*
 const PREFIX = process.env.PREFIX;
 const TOKEN = process.env.BOT_TOKEN;
 const DB_LOGIN = process.env.DB_LOGIN;
+const DB_SRV = `mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`;
+*/
+const PREFIX = '+';
+const TOKEN = 'Njk1NzEyNzA1NzIxNDAxMzc1.XoeK8g.d2BpxxdL2lUKVXoOH3GlfefpE2o';
+const DB_LOGIN = 'nKJ9O19hRXDQjtYJ';
 const DB_SRV = `mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`;
 
 // CONNECT TO DATABASE
