@@ -3,24 +3,23 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const ping = require('minecraft-server-util');
 const fs = require('fs');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-// BOT SETTINGS - Change these to deploy the bot locally 
+// BOT SETTINGS - Change these to deploy the bot locally
 
 const PREFIX = process.env.PREFIX;
 const TOKEN = process.env.BOT_TOKEN;
 const DB_LOGIN = process.env.DB_LOGIN;
 const DB_SRV = `mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`;
 
-
 // CONNECT TO DATABASE
-mongoose.connect(DB_SRV, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
+mongoose.connect(DB_SRV, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 }).then(()=>{
-    console.log('Connected to the database.')
+    console.log('Connected to the database.');
 }).catch((err) => {
-    console.log(err)
+    console.log(err);
 });
 
 var prev_status = false;
@@ -54,7 +53,7 @@ function updateStatusText() {
         if (response == null && prev_status == true) {
             console.log('stopped')
             //channel.send('Server has stoped')
-            prev_status = false
+            prev_status = false;
         }
     });
 };
@@ -104,7 +103,7 @@ client.on('message', message => {
         default:
             message.channel.send(`The following command does not exists: **${PREFIX}` + command + `**\nWrite **${PREFIX}help** to see the list of things I can do.`);
     }
-})
+});
 
 // BOT LOGIN
 client.login(TOKEN);
