@@ -11,6 +11,7 @@
     "parserOptions": {
         "ecmaVersion": 12
     },
+    "ignorePatterns": "commands/event.js",
     "rules": {
         "prettier/prettier": [ 1,
             {

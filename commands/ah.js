@@ -17,7 +17,7 @@ module.exports = {
     var cdr = 100 * (1 - 1 / (1 + (parseInt(temp[1], 10) / 100)))
       message.channel
         .send(
-        "**" + temp[1] + "** ability haste gives you " + "**" + Number(cdr).toFixed(2) + "%**" + " cooldown reduction."
+          "**" + temp[1] + "** ability haste gives you " + "**" + Number(cdr).toFixed(2) + "%**" + " cooldown reduction."
         )
         .then((d) => {
           d.delete({ timeout: tout });
