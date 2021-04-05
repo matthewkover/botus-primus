@@ -56,7 +56,7 @@ function updateStatusText() {
             prev_status = false;
         }
     });
-};
+}
 
 // CHAT COMMANDS
 client.on('message', message => {
