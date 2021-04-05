@@ -12,6 +12,12 @@
         "ecmaVersion": 12
     },
     "rules": {
+        "prettier/prettier": [ 1,
+            {
+                
+            }
+        ],
+        "arrow-body-style": "off",
         "no-console": "off"
     }
 }
