@@ -14,10 +14,11 @@
     "rules": {
         "prettier/prettier": [ 1,
             {
-                
+
             }
         ],
         "arrow-body-style": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "no-unused-vars": "warn"
     }
 }

@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'role',
-    description: 'Role assigner',
+    name: "role",
+    description: "Role assigner",
     execute(message, args) {
         let watcher = message.content.toLowerCase().substring(6);
             let { cache } = message.guild.roles;
@@ -11,11 +11,11 @@ module.exports = {
                     return;
                 }
                 if (
-                    role.permissions.has('ADMINISTRATOR') || 
-                    role.permissions.has('KICK_MEMBERS') || 
-                    role.permissions.has('BAN_MEMBERS') ||
-                    role.permissions.has('MANAGE_GUILD') ||
-                    role.permissions.has('MANAGE_CHANNELS')
+                    role.permissions.has("ADMINISTRATOR") || 
+                    role.permissions.has("KICK_MEMBERS") || 
+                    role.permissions.has("BAN_MEMBERS") ||
+                    role.permissions.has("MANAGE_GUILD") ||
+                    role.permissions.has("MANAGE_CHANNELS")
                 ) {
                     message.channel.send("You cannot add yourself to this role.");
                 }
@@ -26,7 +26,7 @@ module.exports = {
                 }
             }
             else {
-                Message.channel.send("Role not found!");
+                message.channel.send("Role not found!");
             }
-    }
-}
+  },
+};
