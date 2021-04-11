@@ -5,12 +5,12 @@ const ping = require("minecraft-server-util");
 const fs = require("fs");
 const mongoose = require("mongoose");
 
-// BOT SETTINGS - Change these to deploy the bot locally
+require("dotenv").config();
 
+// ENVIRONMENT VARIABLES
 const PREFIX = process.env.PREFIX;
 const TOKEN = process.env.BOT_TOKEN;
-const DB_LOGIN = process.env.DB_LOGIN;
-const DB_SRV = `mongodb+srv://asdkhaa:${DB_LOGIN}@cluster0.dfwri.mongodb.net/botus-primus`;
+const DB_SRV = process.env.DB_SRV;
 
 // CONNECT TO DATABASE
 mongoose
