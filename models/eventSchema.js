@@ -12,4 +12,6 @@ const eventSchema = mongoose.Schema({
   usersDeclined: Array,
 });
 
-module.exports;
+const model = mongoose.model("EventModels", eventSchema);
+
+module.exports = model;

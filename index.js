@@ -17,6 +17,7 @@ mongoose
   .connect(DB_SRV, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log("Connected to the database.");
@@ -104,6 +105,9 @@ client.on("message", (message) => {
     case "log":
       console.log(message);
       message.channel.send("Message parameters logged");
+      break;
+    case "test":
+      client.commands.get("test").execute(client, Discord, message);
       break;
     default:
       message.channel.send(`The following command does not exists: **${PREFIX}` + command + `**\nWrite **${PREFIX}help** to see the list of things I can do.`);
