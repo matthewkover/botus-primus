@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules/
+dist/
+
+# Dotenv
+*.env
+
+# Nodemon
+nodemon.json
