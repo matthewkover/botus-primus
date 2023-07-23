@@ -1,0 +1,25 @@
+{
+  "name": "botus-primus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon --config nodemon.json src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">= 16.0.0"
+  }
+}
