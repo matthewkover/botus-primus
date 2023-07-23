@@ -1,3 +1,1 @@
-
-/** Enviroment check-in */
-console.log(process.env.ENVIRONMENT);
+import ('./client.js');
