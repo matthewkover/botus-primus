@@ -1,12 +1,20 @@
+import pathlib
 import os
 import logging
 from logging.config import dictConfig
 from dotenv import load_dotenv
+import discord
 
 
 load_dotenv()
 
 DISCORD_API_SECRET = os.getenv("DISCORD_API_TOKEN")
+
+BASE_DIR = pathlib.Path(__file__).parent
+
+CMDS_DIR = BASE_DIR / "cmds"
+
+GUILDS_ID = discord.Object(id=int(os.getenv("GUILD")))
 
 LOGGING_CONFIG = {
     "version": 1,
