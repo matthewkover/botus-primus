@@ -16,6 +16,8 @@ CMDS_DIR = BASE_DIR / "cmds"
 
 GUILDS_ID = discord.Object(id=int(os.getenv("GUILD")))
 
+FEEDBACK_CH = int(os.getenv("FEEDBACK_CH"))
+
 LOGGING_CONFIG = {
     "version": 1,
     "disabled_existing_loggers": False,
